@@ -1,0 +1,32 @@
+import type { Metadata } from 'next';
+import { Suspense } from 'react';
+import InstallmentCalculator from './InstallmentCalculator';
+import { BASE_URL } from '@/lib/urls';
+
+export const metadata: Metadata = {
+  title: '자동차 할부금 계산기 - 월 납입금, 이자, 상환 스케줄 계산',
+  description:
+    '자동차 할부 구매 시 월 납입금, 총 이자, 상환 스케줄을 계산합니다. 원리금균등·원금균등 상환 방식 비교가 가능합니다.',
+  keywords: [
+    '자동차 할부 계산기',
+    '할부 이자 계산',
+    '월 납입금 계산',
+    '자동차 할부 금리',
+    '원리금균등',
+    '원금균등',
+  ],
+  alternates: { canonical: `${BASE_URL}/계산기/할부금` },
+  openGraph: {
+    title: '자동차 할부금 계산기',
+    description: '자동차 할부 월 납입금과 이자를 계산합니다.',
+    url: `${BASE_URL}/계산기/할부금`,
+  },
+};
+
+export default function InstallmentPage() {
+  return (
+    <Suspense>
+      <InstallmentCalculator />
+    </Suspense>
+  );
+}
