@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const navItems = [
-  { href: '/계산기/자동차세', label: '자동차세' },
-  { href: '/계산기/취등록세', label: '취등록세' },
-  { href: '/계산기/할부금', label: '할부금' },
-  { href: '/계산기/유류비', label: '유류비' },
-  { href: '/계산기/감가상각', label: '감가상각' },
-  { href: '/계산기/과태료', label: '과태료' },
+  { href: '/calculator/car-tax', label: '자동차세' },
+  { href: '/calculator/registration-tax', label: '취등록세' },
+  { href: '/calculator/installment', label: '할부금' },
+  { href: '/calculator/fuel-cost', label: '유류비' },
+  { href: '/calculator/depreciation', label: '감가상각' },
+  { href: '/calculator/penalty', label: '과태료' },
 ];
 
 export default function Header() {

@@ -2,7 +2,7 @@ export const BASE_URL = 'https://car.mustarddata.com';
 
 export const CALCULATOR_PAGES = [
   {
-    path: '/계산기/자동차세',
+    path: '/calculator/car-tax',
     title: '자동차세 계산기',
     description:
       '배기량과 차령을 입력하면 자동차세를 자동으로 계산합니다. 연납 할인, 분할 납부 금액도 확인하세요.',
@@ -10,7 +10,7 @@ export const CALCULATOR_PAGES = [
     keywords: ['자동차세', '자동차세 계산', '자동차세 연납'],
   },
   {
-    path: '/계산기/취등록세',
+    path: '/calculator/registration-tax',
     title: '취등록세 계산기',
     description:
       '신차·중고차 구매 시 취득세와 등록비용을 계산합니다. 경차·전기차·하이브리드 감면도 반영됩니다.',
@@ -18,7 +18,7 @@ export const CALCULATOR_PAGES = [
     keywords: ['취등록세', '자동차 취득세', '신차 등록비용'],
   },
   {
-    path: '/계산기/할부금',
+    path: '/calculator/installment',
     title: '할부금 계산기',
     description:
       '자동차 할부 구매 시 월 납입금과 총 이자를 계산합니다. 원리금균등·원금균등 상환 비교가 가능합니다.',
@@ -26,7 +26,7 @@ export const CALCULATOR_PAGES = [
     keywords: ['자동차 할부', '할부 이자', '월 납입금 계산'],
   },
   {
-    path: '/계산기/유류비',
+    path: '/calculator/fuel-cost',
     title: '유류비 계산기',
     description:
       '주행 거리와 연비를 입력하면 예상 유류비를 계산합니다. 휘발유·경유·LPG 유종별 비교가 가능합니다.',
@@ -34,7 +34,7 @@ export const CALCULATOR_PAGES = [
     keywords: ['유류비 계산', '주유비 계산', '연비 계산'],
   },
   {
-    path: '/계산기/감가상각',
+    path: '/calculator/depreciation',
     title: '감가상각 계산기',
     description:
       '차량 가격, 연식, 주행거리를 기반으로 현재 예상 시세를 계산합니다.',
@@ -42,7 +42,7 @@ export const CALCULATOR_PAGES = [
     keywords: ['자동차 감가상각', '중고차 시세', '차량 잔존가치'],
   },
   {
-    path: '/계산기/과태료',
+    path: '/calculator/penalty',
     title: '과태료·범칙금 조회',
     description:
       '교통 위반 유형별 과태료, 범칙금, 벌점을 한눈에 확인합니다. 2026년 도로교통법 기준.',

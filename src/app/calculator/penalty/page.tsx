@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     '속도위반 과태료',
     '주정차위반 과태료',
   ],
-  alternates: { canonical: `${BASE_URL}/계산기/과태료` },
+  alternates: { canonical: `${BASE_URL}/calculator/penalty` },
   openGraph: {
     title: '교통 과태료·범칙금 조회',
     description: '위반 유형별 과태료, 범칙금, 벌점을 한눈에 확인합니다.',
-    url: `${BASE_URL}/계산기/과태료`,
+    url: `${BASE_URL}/calculator/penalty`,
   },
 };
 

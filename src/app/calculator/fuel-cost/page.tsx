@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     '유가 비교',
     '전기차 충전비',
   ],
-  alternates: { canonical: `${BASE_URL}/계산기/유류비` },
+  alternates: { canonical: `${BASE_URL}/calculator/fuel-cost` },
   openGraph: {
     title: '유류비 계산기 - 주행거리별 주유비 계산',
     description: '주행 거리와 연비로 예상 유류비를 계산합니다.',
-    url: `${BASE_URL}/계산기/유류비`,
+    url: `${BASE_URL}/calculator/fuel-cost`,
   },
 };
 

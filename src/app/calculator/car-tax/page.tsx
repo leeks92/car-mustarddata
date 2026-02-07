@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     '2026 자동차세',
   ],
   alternates: {
-    canonical: `${BASE_URL}/계산기/자동차세`,
+    canonical: `${BASE_URL}/calculator/car-tax`,
   },
   openGraph: {
     title: '자동차세 계산기 - 2026년 기준 자동 계산',
     description:
       '배기량과 차령으로 연간 자동차세를 계산합니다. 연납 할인, 분할 납부 금액도 확인하세요.',
-    url: `${BASE_URL}/계산기/자동차세`,
+    url: `${BASE_URL}/calculator/car-tax`,
   },
 };
 

@@ -51,7 +51,7 @@ export default function RegistrationTaxCalculator() {
           '@type': 'WebApplication',
           name: '취등록세 계산기',
           description: '자동차 구매 시 취득세와 등록비용을 계산합니다.',
-          url: `${BASE_URL}/계산기/취등록세`,
+          url: `${BASE_URL}/calculator/registration-tax`,
           applicationCategory: 'FinanceApplication',
           operatingSystem: 'All',
         }}
@@ -62,7 +62,7 @@ export default function RegistrationTaxCalculator() {
           '@type': 'BreadcrumbList',
           itemListElement: [
             { '@type': 'ListItem', position: 1, name: '자동차 계산기', item: BASE_URL },
-            { '@type': 'ListItem', position: 2, name: '취등록세 계산기', item: `${BASE_URL}/계산기/취등록세` },
+            { '@type': 'ListItem', position: 2, name: '취등록세 계산기', item: `${BASE_URL}/calculator/registration-tax` },
           ],
         }}
       />
@@ -221,13 +221,13 @@ export default function RegistrationTaxCalculator() {
                 <div className="bg-gray-50 rounded-lg p-4">
                   <h4 className="font-medium text-gray-900 mb-3">다른 계산기</h4>
                   <div className="flex flex-wrap gap-2">
-                    <Link href="/계산기/할부금" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
+                    <Link href="/calculator/installment" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
                       할부금 계산기
                     </Link>
-                    <Link href="/계산기/자동차세" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
+                    <Link href="/calculator/car-tax" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
                       자동차세 계산기
                     </Link>
-                    <Link href="/계산기/감가상각" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
+                    <Link href="/calculator/depreciation" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
                       감가상각 계산기
                     </Link>
                   </div>

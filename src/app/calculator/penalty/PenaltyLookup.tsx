@@ -61,7 +61,7 @@ export default function PenaltyLookup() {
           '@type': 'WebApplication',
           name: '교통 과태료·범칙금 조회',
           description: '교통 위반 유형별 과태료, 범칙금, 벌점을 확인합니다.',
-          url: `${BASE_URL}/계산기/과태료`,
+          url: `${BASE_URL}/calculator/penalty`,
           applicationCategory: 'UtilitiesApplication',
           operatingSystem: 'All',
         }}
@@ -72,7 +72,7 @@ export default function PenaltyLookup() {
           '@type': 'BreadcrumbList',
           itemListElement: [
             { '@type': 'ListItem', position: 1, name: '자동차 계산기', item: BASE_URL },
-            { '@type': 'ListItem', position: 2, name: '과태료·범칙금 조회', item: `${BASE_URL}/계산기/과태료` },
+            { '@type': 'ListItem', position: 2, name: '과태료·범칙금 조회', item: `${BASE_URL}/calculator/penalty` },
           ],
         }}
       />
@@ -226,13 +226,13 @@ export default function PenaltyLookup() {
         <div className="mt-8 bg-gray-50 rounded-lg p-4">
           <h3 className="font-medium text-gray-900 mb-3">다른 계산기</h3>
           <div className="flex flex-wrap gap-2">
-            <Link href="/계산기/자동차세" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
+            <Link href="/calculator/car-tax" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
               자동차세 계산기
             </Link>
-            <Link href="/계산기/유류비" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
+            <Link href="/calculator/fuel-cost" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
               유류비 계산기
             </Link>
-            <Link href="/계산기/할부금" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
+            <Link href="/calculator/installment" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
               할부금 계산기
             </Link>
           </div>

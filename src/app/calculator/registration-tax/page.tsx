@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     '경차 취득세',
   ],
   alternates: {
-    canonical: `${BASE_URL}/계산기/취등록세`,
+    canonical: `${BASE_URL}/calculator/registration-tax`,
   },
   openGraph: {
     title: '취등록세 계산기 - 신차·중고차 취득세 계산',
     description:
       '자동차 구매 시 취득세와 등록비용을 정확하게 계산합니다. 경차·전기차 감면 반영.',
-    url: `${BASE_URL}/계산기/취등록세`,
+    url: `${BASE_URL}/calculator/registration-tax`,
   },
 };
 

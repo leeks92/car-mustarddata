@@ -94,14 +94,14 @@ export default function HomePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
-              href="/계산기/자동차세"
-              className="px-6 py-3 bg-white text-amber-700 font-semibold rounded-xl hover:bg-amber-50 transition-colors"
+              href="/calculator/car-tax"
+              className="px-6 py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors"
             >
               자동차세 계산하기
             </Link>
             <Link
-              href="/계산기/취등록세"
-              className="px-6 py-3 bg-amber-400/30 text-white font-semibold rounded-xl hover:bg-amber-400/50 transition-colors border border-white/30"
+              href="/calculator/registration-tax"
+              className="px-6 py-3 bg-white text-amber-700 font-semibold rounded-xl hover:bg-amber-50 transition-colors"
             >
               취등록세 계산하기
             </Link>

@@ -45,7 +45,7 @@ export default function DepreciationCalculator() {
           '@type': 'WebApplication',
           name: '자동차 감가상각 계산기',
           description: '연식·주행거리별 자동차 예상 시세를 계산합니다.',
-          url: `${BASE_URL}/계산기/감가상각`,
+          url: `${BASE_URL}/calculator/depreciation`,
           applicationCategory: 'FinanceApplication',
           operatingSystem: 'All',
         }}
@@ -56,7 +56,7 @@ export default function DepreciationCalculator() {
           '@type': 'BreadcrumbList',
           itemListElement: [
             { '@type': 'ListItem', position: 1, name: '자동차 계산기', item: BASE_URL },
-            { '@type': 'ListItem', position: 2, name: '감가상각 계산기', item: `${BASE_URL}/계산기/감가상각` },
+            { '@type': 'ListItem', position: 2, name: '감가상각 계산기', item: `${BASE_URL}/calculator/depreciation` },
           ],
         }}
       />
@@ -184,10 +184,10 @@ export default function DepreciationCalculator() {
                 <div className="bg-gray-50 rounded-lg p-4">
                   <h4 className="font-medium text-gray-900 mb-3">다른 계산기</h4>
                   <div className="flex flex-wrap gap-2">
-                    <Link href="/계산기/취등록세" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
+                    <Link href="/calculator/registration-tax" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
                       취등록세 계산기
                     </Link>
-                    <Link href="/계산기/유류비" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
+                    <Link href="/calculator/fuel-cost" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
                       유류비 계산기
                     </Link>
                   </div>

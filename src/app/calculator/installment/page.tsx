@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     '원리금균등',
     '원금균등',
   ],
-  alternates: { canonical: `${BASE_URL}/계산기/할부금` },
+  alternates: { canonical: `${BASE_URL}/calculator/installment` },
   openGraph: {
     title: '자동차 할부금 계산기',
     description: '자동차 할부 월 납입금과 이자를 계산합니다.',
-    url: `${BASE_URL}/계산기/할부금`,
+    url: `${BASE_URL}/calculator/installment`,
   },
 };
 

@@ -66,7 +66,7 @@ export default function CarTaxCalculator() {
           name: '자동차세 계산기',
           description:
             '배기량과 차령을 입력하면 자동차세를 자동으로 계산합니다.',
-          url: `${BASE_URL}/계산기/자동차세`,
+          url: `${BASE_URL}/calculator/car-tax`,
           applicationCategory: 'FinanceApplication',
           operatingSystem: 'All',
         }}
@@ -86,7 +86,7 @@ export default function CarTaxCalculator() {
               '@type': 'ListItem',
               position: 2,
               name: '자동차세 계산기',
-              item: `${BASE_URL}/계산기/자동차세`,
+              item: `${BASE_URL}/calculator/car-tax`,
             },
           ],
         }}
@@ -311,19 +311,19 @@ export default function CarTaxCalculator() {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     <Link
-                      href="/계산기/취등록세"
+                      href="/calculator/registration-tax"
                       className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors"
                     >
                       취등록세 계산기
                     </Link>
                     <Link
-                      href="/계산기/할부금"
+                      href="/calculator/installment"
                       className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors"
                     >
                       할부금 계산기
                     </Link>
                     <Link
-                      href="/계산기/유류비"
+                      href="/calculator/fuel-cost"
                       className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors"
                     >
                       유류비 계산기

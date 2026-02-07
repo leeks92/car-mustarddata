@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     '차량 잔존가치',
     '자동차 가치 하락',
   ],
-  alternates: { canonical: `${BASE_URL}/계산기/감가상각` },
+  alternates: { canonical: `${BASE_URL}/calculator/depreciation` },
   openGraph: {
     title: '자동차 감가상각 계산기',
     description: '연식·주행거리별 자동차 예상 시세를 계산합니다.',
-    url: `${BASE_URL}/계산기/감가상각`,
+    url: `${BASE_URL}/calculator/depreciation`,
   },
 };
 

@@ -11,17 +11,17 @@ export default function Footer() {
             <h3 className="font-bold mb-3 text-gray-900">자동차 계산기</h3>
             <ul className="space-y-2 text-sm text-gray-700">
               <li>
-                <Link href="/계산기/자동차세" className="hover:text-amber-600">
+                <Link href="/calculator/car-tax" className="hover:text-amber-600">
                   자동차세 계산기
                 </Link>
               </li>
               <li>
-                <Link href="/계산기/취등록세" className="hover:text-amber-600">
+                <Link href="/calculator/registration-tax" className="hover:text-amber-600">
                   취등록세 계산기
                 </Link>
               </li>
               <li>
-                <Link href="/계산기/할부금" className="hover:text-amber-600">
+                <Link href="/calculator/installment" className="hover:text-amber-600">
                   할부금 계산기
                 </Link>
               </li>
@@ -31,17 +31,17 @@ export default function Footer() {
             <h3 className="font-bold mb-3 text-gray-900">비용 계산</h3>
             <ul className="space-y-2 text-sm text-gray-700">
               <li>
-                <Link href="/계산기/유류비" className="hover:text-amber-600">
+                <Link href="/calculator/fuel-cost" className="hover:text-amber-600">
                   유류비 계산기
                 </Link>
               </li>
               <li>
-                <Link href="/계산기/감가상각" className="hover:text-amber-600">
+                <Link href="/calculator/depreciation" className="hover:text-amber-600">
                   감가상각 계산기
                 </Link>
               </li>
               <li>
-                <Link href="/계산기/과태료" className="hover:text-amber-600">
+                <Link href="/calculator/penalty" className="hover:text-amber-600">
                   과태료·범칙금 조회
                 </Link>
               </li>

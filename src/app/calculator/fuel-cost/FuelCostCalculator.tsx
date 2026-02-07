@@ -20,24 +20,39 @@ const fuelTypes: { value: FuelType; defaultEfficiency: number }[] = [
   { value: 'electric', defaultEfficiency: 6 }, // km/kWh
 ];
 
+function formatNumberWithComma(value: string): string {
+  const num = value.replace(/[^0-9]/g, '');
+  if (!num) return '';
+  return Number(num).toLocaleString('ko-KR');
+}
+
+function parseFormattedNumber(value: string): string {
+  return value.replace(/[^0-9]/g, '');
+}
+
 export default function FuelCostCalculator() {
   const [distance, setDistance] = useState<string>('300');
   const [fuelType, setFuelType] = useState<FuelType>('gasoline');
   const [efficiency, setEfficiency] = useState<string>('12');
-  const [fuelPrice, setFuelPrice] = useState<string>(DEFAULT_FUEL_PRICES.gasoline.toString());
+  const [fuelPrice, setFuelPrice] = useState<string>(formatNumberWithComma(DEFAULT_FUEL_PRICES.gasoline.toString()));
   const [results, setResults] = useState<ReturnType<typeof calculateFuelCost>[] | null>(null);
 
   const handleFuelTypeChange = (type: FuelType) => {
     setFuelType(type);
-    setFuelPrice(DEFAULT_FUEL_PRICES[type].toString());
+    setFuelPrice(formatNumberWithComma(DEFAULT_FUEL_PRICES[type].toString()));
     const ft = fuelTypes.find((f) => f.value === type);
     if (ft) setEfficiency(ft.defaultEfficiency.toString());
+  };
+
+  const handleFuelPriceChange = (value: string) => {
+    const raw = parseFormattedNumber(value);
+    setFuelPrice(raw ? formatNumberWithComma(raw) : '');
   };
 
   const handleCalculate = () => {
     const d = parseFloat(distance) || 0;
     const e = parseFloat(efficiency) || 0;
-    const p = parseFloat(fuelPrice) || 0;
+    const p = parseFloat(parseFormattedNumber(fuelPrice)) || 0;
     if (d > 0 && e > 0 && p > 0) {
       // 선택한 유종 결과 + 다른 유종 비교
       const allResults = fuelTypes.map((ft) => {
@@ -59,7 +74,7 @@ export default function FuelCostCalculator() {
           '@type': 'WebApplication',
           name: '유류비 계산기',
           description: '주행 거리와 연비로 예상 유류비를 계산합니다.',
-          url: `${BASE_URL}/계산기/유류비`,
+          url: `${BASE_URL}/calculator/fuel-cost`,
           applicationCategory: 'FinanceApplication',
           operatingSystem: 'All',
         }}
@@ -70,7 +85,7 @@ export default function FuelCostCalculator() {
           '@type': 'BreadcrumbList',
           itemListElement: [
             { '@type': 'ListItem', position: 1, name: '자동차 계산기', item: BASE_URL },
-            { '@type': 'ListItem', position: 2, name: '유류비 계산기', item: `${BASE_URL}/계산기/유류비` },
+            { '@type': 'ListItem', position: 2, name: '유류비 계산기', item: `${BASE_URL}/calculator/fuel-cost` },
           ],
         }}
       />
@@ -144,7 +159,7 @@ export default function FuelCostCalculator() {
                 {fuelType === 'electric' ? 'kWh당 단가' : '리터당 유가'}
               </label>
               <div className="relative">
-                <input type="number" value={fuelPrice} onChange={(e) => setFuelPrice(e.target.value)} min="1" className="calculator-input pr-12" />
+                <input type="text" inputMode="numeric" value={fuelPrice} onChange={(e) => handleFuelPriceChange(e.target.value)} className="calculator-input pr-12" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">원</span>
               </div>
             </div>
@@ -205,10 +220,10 @@ export default function FuelCostCalculator() {
                 <div className="bg-gray-50 rounded-lg p-4">
                   <h4 className="font-medium text-gray-900 mb-3">다른 계산기</h4>
                   <div className="flex flex-wrap gap-2">
-                    <Link href="/계산기/감가상각" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
+                    <Link href="/calculator/depreciation" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
                       감가상각 계산기
                     </Link>
-                    <Link href="/계산기/자동차세" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
+                    <Link href="/calculator/car-tax" className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-amber-50 hover:border-amber-300 transition-colors">
                       자동차세 계산기
                     </Link>
                   </div>
