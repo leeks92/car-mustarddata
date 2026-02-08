@@ -60,6 +60,16 @@ jobs:
             "https://car.mustarddata.com/calculator/fuel-cost/",
             "https://car.mustarddata.com/calculator/depreciation/",
             "https://car.mustarddata.com/calculator/penalty/",
+            "https://car.mustarddata.com/guide/new-car-buying/",
+            "https://car.mustarddata.com/guide/ev-subsidy/",
+            "https://car.mustarddata.com/guide/car-tax-prepay/",
+            "https://car.mustarddata.com/guide/maintenance-cost/",
+            "https://car.mustarddata.com/guide/cash-vs-loan-vs-lease/",
+            "https://car.mustarddata.com/recall/",
+            "https://car.mustarddata.com/inspection/",
+            "https://car.mustarddata.com/calculator/car-tax/cc/",
+            "https://car.mustarddata.com/calculator/car-tax/models/",
+            "https://car.mustarddata.com/calculator/registration-tax/used-car/",
             "https://car.mustarddata.com/sitemap.xml"
           ]'
 
@@ -91,6 +101,16 @@ jobs:
             "https://car.mustarddata.com/calculator/fuel-cost/"
             "https://car.mustarddata.com/calculator/depreciation/"
             "https://car.mustarddata.com/calculator/penalty/"
+            "https://car.mustarddata.com/guide/new-car-buying/"
+            "https://car.mustarddata.com/guide/ev-subsidy/"
+            "https://car.mustarddata.com/guide/car-tax-prepay/"
+            "https://car.mustarddata.com/guide/maintenance-cost/"
+            "https://car.mustarddata.com/guide/cash-vs-loan-vs-lease/"
+            "https://car.mustarddata.com/recall/"
+            "https://car.mustarddata.com/inspection/"
+            "https://car.mustarddata.com/calculator/car-tax/cc/"
+            "https://car.mustarddata.com/calculator/car-tax/models/"
+            "https://car.mustarddata.com/calculator/registration-tax/used-car/"
           )
 
           # JWT 생성

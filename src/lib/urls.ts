@@ -64,6 +64,24 @@ export const GUIDE_PAGES = [
     description: '2026년 전기차 국고보조금·지자체 보조금 정보를 정리했습니다.',
     emoji: '🔋',
   },
+  {
+    path: '/guide/car-tax-prepay',
+    title: '자동차세 연납 가이드',
+    description: '자동차세 연납 할인율, 신청 방법, 절약 금액을 총정리했습니다.',
+    emoji: '💸',
+  },
+  {
+    path: '/guide/maintenance-cost',
+    title: '자동차 유지비 가이드',
+    description: '2026년 차종별 월간 유지비 비교와 절약 방법을 정리했습니다.',
+    emoji: '🔧',
+  },
+  {
+    path: '/guide/cash-vs-loan-vs-lease',
+    title: '현금 vs 할부 vs 리스',
+    description: '3가지 자동차 구매 방식의 장단점과 총비용을 비교합니다.',
+    emoji: '💰',
+  },
 ];
 
 export const INFO_PAGES = [
@@ -84,6 +102,18 @@ export const INFO_PAGES = [
     title: '배기량별 자동차세',
     description: '배기량별 자동차세를 한눈에 비교하세요.',
     emoji: '📊',
+  },
+  {
+    path: '/calculator/car-tax/models',
+    title: '차종별 자동차세 조회',
+    description: '국산차·수입차 인기 차종의 자동차세를 한눈에 비교합니다.',
+    emoji: '🚘',
+  },
+  {
+    path: '/calculator/registration-tax/used-car',
+    title: '중고차 취등록세',
+    description: '중고차 이전 등록 비용, 감면 대상, 명의이전 절차를 확인하세요.',
+    emoji: '🔄',
   },
 ];
 
