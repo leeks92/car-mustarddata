@@ -459,7 +459,7 @@ export default function UsedCarRegistrationTaxPage() {
             </p>
             <Link
               href="/calculator/registration-tax"
-              className="inline-block px-8 py-3 bg-white text-amber-600 font-semibold rounded-xl hover:bg-amber-50 transition-colors"
+              className="inline-block px-8 py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors"
             >
               취등록세 계산하기
             </Link>

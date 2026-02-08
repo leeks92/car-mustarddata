@@ -92,7 +92,7 @@ export default function RecallPage() {
               href="https://www.car365.go.kr/web/contents/recall.do"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-3 bg-white text-amber-600 font-semibold rounded-xl hover:bg-amber-50 transition-colors"
+              className="inline-block px-8 py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors"
             >
               자동차365에서 리콜 조회 →
             </a>
