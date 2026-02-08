@@ -82,7 +82,7 @@ export default function RootLayout({
     <html lang="ko">
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="google-adsense-account" content="ca-pub-9325661912203986" />
+        <meta name="google-adsense-account" content="ca-pub-3224638013189545" />
         <meta name="naver-site-verification" content="8c32b15ff018b75af20543ce6819161cdf27535f" />
         <meta name="NaverBot" content="All" />
         <meta name="NaverBot" content="index,follow" />
@@ -115,6 +115,11 @@ export default function RootLayout({
             gtag('config', '${GA_ID}');
           `}
         </Script>
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3224638013189545"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

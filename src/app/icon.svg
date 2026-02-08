@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background: Amber/Orange -->
+  <rect width="512" height="512" rx="115" fill="#F59E0B"/>
+  
+  <!-- Car Body: White -->
+  <path d="M100 310 L140 220 C150 200 170 190 190 190 L322 190 C342 190 362 200 372 220 L412 310 Z" fill="white"/>
+  
+  <!-- Car Roof -->
+  <path d="M175 190 L200 140 C205 130 215 125 225 125 L287 125 C297 125 307 130 312 140 L337 190 Z" fill="white"/>
+  
+  <!-- Windshield -->
+  <path d="M185 185 L205 145 C208 139 215 135 222 135 L290 135 C297 135 304 139 307 145 L327 185 Z" fill="#F59E0B"/>
+  
+  <!-- Car Bottom -->
+  <rect x="90" y="310" width="332" height="50" rx="10" fill="white"/>
+  
+  <!-- Wheels -->
+  <circle cx="170" cy="360" r="38" fill="#374151"/>
+  <circle cx="170" cy="360" r="18" fill="#9CA3AF"/>
+  <circle cx="342" cy="360" r="38" fill="#374151"/>
+  <circle cx="342" cy="360" r="18" fill="#9CA3AF"/>
+  
+  <!-- Headlights -->
+  <rect x="95" y="280" width="30" height="20" rx="5" fill="#FDE68A"/>
+  <rect x="387" y="280" width="30" height="20" rx="5" fill="#FDE68A"/>
+</svg>
