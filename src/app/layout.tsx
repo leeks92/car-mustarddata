@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 
 const BASE_URL = 'https://car.mustarddata.com';
-const GA_ID = 'G-PLACEHOLDER';
+const GA_ID = 'G-XD48NQEJC5';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -83,6 +83,7 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="google-adsense-account" content="ca-pub-9325661912203986" />
+        <meta name="naver-site-verification" content="8c32b15ff018b75af20543ce6819161cdf27535f" />
         <meta name="NaverBot" content="All" />
         <meta name="NaverBot" content="index,follow" />
         <meta name="Yeti" content="All" />

@@ -101,7 +101,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/calculator/registration-tax"
-              className="px-6 py-3 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 transition-colors"
+              className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors"
             >
               취등록세 계산하기
             </Link>
