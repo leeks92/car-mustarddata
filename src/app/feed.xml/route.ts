@@ -1,4 +1,4 @@
-import { CALCULATOR_PAGES, BASE_URL } from '@/lib/urls';
+import { CALCULATOR_PAGES, GUIDE_PAGES, INFO_PAGES, BASE_URL } from '@/lib/urls';
 
 export const dynamic = 'force-static';
 
@@ -27,6 +27,32 @@ export async function GET() {
       <link>${url}</link>
       <guid>${url}</guid>
       <description><![CDATA[${calc.description}]]></description>
+      <pubDate>${pubDate}</pubDate>
+    </item>`);
+  });
+
+  // 가이드 페이지
+  GUIDE_PAGES.forEach((page) => {
+    const url = `${BASE_URL}${page.path}`;
+    items.push(`
+    <item>
+      <title><![CDATA[${page.title} - ${page.description}]]></title>
+      <link>${url}</link>
+      <guid>${url}</guid>
+      <description><![CDATA[${page.description}]]></description>
+      <pubDate>${pubDate}</pubDate>
+    </item>`);
+  });
+
+  // 정보 페이지
+  INFO_PAGES.forEach((page) => {
+    const url = `${BASE_URL}${page.path}`;
+    items.push(`
+    <item>
+      <title><![CDATA[${page.title} - ${page.description}]]></title>
+      <link>${url}</link>
+      <guid>${url}</guid>
+      <description><![CDATA[${page.description}]]></description>
       <pubDate>${pubDate}</pubDate>
     </item>`);
   });

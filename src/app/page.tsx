@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import JsonLd from '@/components/JsonLd';
-import { CALCULATOR_PAGES, BASE_URL } from '@/lib/urls';
+import { CALCULATOR_PAGES, GUIDE_PAGES, INFO_PAGES, BASE_URL } from '@/lib/urls';
 
 const faqs = [
   {
@@ -127,6 +127,30 @@ export default function HomePage() {
               </h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 {calc.description}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Guide & Info */}
+      <section className="max-w-6xl mx-auto px-4 py-12">
+        <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+          가이드 & 정보
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[...GUIDE_PAGES, ...INFO_PAGES].map((page) => (
+            <Link
+              key={page.path}
+              href={page.path}
+              className="group bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:border-amber-200 transition-all"
+            >
+              <div className="text-4xl mb-4">{page.emoji}</div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">
+                {page.title}
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                {page.description}
               </p>
             </Link>
           ))}

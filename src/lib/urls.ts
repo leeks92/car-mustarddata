@@ -51,9 +51,47 @@ export const CALCULATOR_PAGES = [
   },
 ];
 
+export const GUIDE_PAGES = [
+  {
+    path: '/guide/new-car-buying',
+    title: '신차 구매 가이드',
+    description: '신차 구매 시 필요한 비용과 절차를 총정리했습니다.',
+    emoji: '🚗',
+  },
+  {
+    path: '/guide/ev-subsidy',
+    title: '전기차 보조금 가이드',
+    description: '2026년 전기차 국고보조금·지자체 보조금 정보를 정리했습니다.',
+    emoji: '🔋',
+  },
+];
+
+export const INFO_PAGES = [
+  {
+    path: '/recall',
+    title: '리콜 정보 조회',
+    description: '내 차가 리콜 대상인지 확인하고, 무상 수리를 받으세요.',
+    emoji: '📢',
+  },
+  {
+    path: '/inspection',
+    title: '자동차 검사 일정',
+    description: '정기검사·종합검사 주기, 비용, 과태료 정보를 확인하세요.',
+    emoji: '🔍',
+  },
+  {
+    path: '/calculator/car-tax/cc',
+    title: '배기량별 자동차세',
+    description: '배기량별 자동차세를 한눈에 비교하세요.',
+    emoji: '📊',
+  },
+];
+
 export function getAllUrls(): string[] {
   return [
     BASE_URL,
     ...CALCULATOR_PAGES.map((page) => `${BASE_URL}${page.path}`),
+    ...GUIDE_PAGES.map((page) => `${BASE_URL}${page.path}`),
+    ...INFO_PAGES.map((page) => `${BASE_URL}${page.path}`),
   ];
 }
