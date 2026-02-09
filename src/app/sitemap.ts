@@ -58,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const region of regions) {
     for (const sg of region.sigungu) {
       evChargerSigunguPages.push({
-        url: `${BASE_URL}/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sg.name)}`,
+        url: `${BASE_URL}/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sg.name, sidoToSlug(region.sido))}`,
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
         priority: 0.7,

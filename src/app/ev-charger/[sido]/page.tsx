@@ -159,7 +159,7 @@ export default async function SidoPage({ params }: PageProps) {
               return (
                 <Link
                   key={sg.code}
-                  href={`/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sg.name)}`}
+                  href={`/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sg.name, sidoToSlug(region.sido))}`}
                   className="block bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:border-amber-200 transition-all"
                 >
                   <div className="flex items-center justify-between mb-3">

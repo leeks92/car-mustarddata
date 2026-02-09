@@ -38,12 +38,12 @@ export async function generateMetadata({
       `${sigungu.name} EV 충전소`,
     ],
     alternates: {
-      canonical: `${BASE_URL}/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sigungu.name)}`,
+      canonical: `${BASE_URL}/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sigungu.name, sidoToSlug(region.sido))}`,
     },
     openGraph: {
       title: `${region.sido} ${sigungu.name} 전기차 충전소 ${sigungu.chargers.length}곳`,
       description: `${sigungu.name} 지역 전기차 충전소 위치와 요금 정보`,
-      url: `${BASE_URL}/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sigungu.name)}`,
+      url: `${BASE_URL}/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sigungu.name, sidoToSlug(region.sido))}`,
     },
   };
 }
@@ -90,7 +90,7 @@ export default async function SigunguPage({ params }: PageProps) {
           '@type': 'WebPage',
           name: `${region.sido} ${sigungu.name} 전기차 충전소`,
           description: `${sigungu.name} 전기차 충전소 ${sigungu.chargers.length}곳 정보`,
-          url: `${BASE_URL}/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sigungu.name)}`,
+          url: `${BASE_URL}/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sigungu.name, sidoToSlug(region.sido))}`,
         }}
       />
       <JsonLd

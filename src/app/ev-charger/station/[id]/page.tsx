@@ -132,7 +132,7 @@ export default async function StationDetailPage({ params }: PageProps) {
           </Link>
           <span className="mx-2">›</span>
           <Link
-            href={`/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sigungu.name)}`}
+            href={`/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sigungu.name, sidoToSlug(region.sido))}`}
             className="hover:text-amber-600"
           >
             {sigungu.name}
