@@ -141,9 +141,9 @@ export function slugToSido(slug: string): string {
   return map[slug] || slug;
 }
 
-/** 시군구명 → URL 슬러그 변환 */
+/** 시군구명 → URL 슬러그 변환 (한글 그대로 사용 - GitHub Pages 호환) */
 export function sigunguToSlug(name: string): string {
-  return encodeURIComponent(name);
+  return name;
 }
 
 /** URL 슬러그 → 시군구명 변환 */
