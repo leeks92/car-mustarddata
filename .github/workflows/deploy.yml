@@ -70,6 +70,10 @@ jobs:
             "https://car.mustarddata.com/calculator/car-tax/cc/",
             "https://car.mustarddata.com/calculator/car-tax/models/",
             "https://car.mustarddata.com/calculator/registration-tax/used-car/",
+            "https://car.mustarddata.com/ev-charger/",
+            "https://car.mustarddata.com/ev-charger/seoul/",
+            "https://car.mustarddata.com/ev-charger/gyeonggi/",
+            "https://car.mustarddata.com/ev-charger/busan/",
             "https://car.mustarddata.com/sitemap.xml"
           ]'
 
@@ -111,6 +115,10 @@ jobs:
             "https://car.mustarddata.com/calculator/car-tax/cc/"
             "https://car.mustarddata.com/calculator/car-tax/models/"
             "https://car.mustarddata.com/calculator/registration-tax/used-car/"
+            "https://car.mustarddata.com/ev-charger/"
+            "https://car.mustarddata.com/ev-charger/seoul/"
+            "https://car.mustarddata.com/ev-charger/gyeonggi/"
+            "https://car.mustarddata.com/ev-charger/busan/"
           )
 
           # JWT 생성

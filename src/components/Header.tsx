@@ -10,6 +10,7 @@ const navItems = [
   { href: '/calculator/fuel-cost', label: '유류비' },
   { href: '/calculator/depreciation', label: '감가상각' },
   { href: '/calculator/penalty', label: '과태료' },
+  { href: '/ev-charger', label: '충전소' },
 ];
 
 export default function Header() {

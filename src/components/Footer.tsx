@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-100 border-t mt-12">
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
           <div>
             <h3 className="font-bold mb-3 text-gray-900">자동차 계산기</h3>
             <ul className="space-y-2 text-sm text-gray-700">
@@ -43,6 +43,31 @@ export default function Footer() {
               <li>
                 <Link href="/calculator/penalty" className="hover:text-amber-600">
                   과태료·범칙금 조회
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-bold mb-3 text-gray-900">전기차 충전소</h3>
+            <ul className="space-y-2 text-sm text-gray-700">
+              <li>
+                <Link href="/ev-charger" className="hover:text-amber-600">
+                  전국 충전소 찾기
+                </Link>
+              </li>
+              <li>
+                <Link href="/ev-charger/seoul" className="hover:text-amber-600">
+                  서울 충전소
+                </Link>
+              </li>
+              <li>
+                <Link href="/ev-charger/gyeonggi" className="hover:text-amber-600">
+                  경기 충전소
+                </Link>
+              </li>
+              <li>
+                <Link href="/ev-charger/busan" className="hover:text-amber-600">
+                  부산 충전소
                 </Link>
               </li>
             </ul>

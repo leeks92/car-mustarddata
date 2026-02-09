@@ -1,5 +1,11 @@
 import { MetadataRoute } from 'next';
-import { CALCULATOR_PAGES, GUIDE_PAGES, INFO_PAGES, BASE_URL } from '@/lib/urls';
+import { CALCULATOR_PAGES, GUIDE_PAGES, INFO_PAGES, EV_CHARGER_PAGES, BASE_URL } from '@/lib/urls';
+import {
+  getRegions,
+  sidoToSlug,
+  sigunguToSlug,
+  getAllChargerIds,
+} from '@/lib/ev-data';
 
 export const dynamic = 'force-static';
 
@@ -36,5 +42,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...calculatorPages, ...guidePages, ...infoPages];
+  // EV charger static top-level pages
+  const evChargerTopPages: MetadataRoute.Sitemap = EV_CHARGER_PAGES.map(
+    (page) => ({
+      url: `${BASE_URL}${page.path}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })
+  );
+
+  // EV charger dynamic pages (sigungu + station)
+  const regions = getRegions();
+  const evChargerSigunguPages: MetadataRoute.Sitemap = [];
+  for (const region of regions) {
+    for (const sg of region.sigungu) {
+      evChargerSigunguPages.push({
+        url: `${BASE_URL}/ev-charger/${sidoToSlug(region.sido)}/${sigunguToSlug(sg.name)}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      });
+    }
+  }
+
+  const evChargerStationPages: MetadataRoute.Sitemap = getAllChargerIds().map(
+    (id) => ({
+      url: `${BASE_URL}/ev-charger/station/${id}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.6,
+    })
+  );
+
+  return [
+    ...staticPages,
+    ...calculatorPages,
+    ...guidePages,
+    ...infoPages,
+    ...evChargerTopPages,
+    ...evChargerSigunguPages,
+    ...evChargerStationPages,
+  ];
 }

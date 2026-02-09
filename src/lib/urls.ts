@@ -117,11 +117,25 @@ export const INFO_PAGES = [
   },
 ];
 
+export const EV_CHARGER_PAGES = [
+  {
+    path: '/ev-charger',
+    title: '전기차 충전소 찾기',
+    description:
+      '전국 전기차 충전소 위치, 요금, 운영시간 정보를 지역별로 확인하세요.',
+    emoji: '⚡',
+  },
+  { path: '/ev-charger/seoul', title: '서울 전기차 충전소', description: '서울특별시 전기차 충전소 현황', emoji: '⚡' },
+  { path: '/ev-charger/gyeonggi', title: '경기 전기차 충전소', description: '경기도 전기차 충전소 현황', emoji: '⚡' },
+  { path: '/ev-charger/busan', title: '부산 전기차 충전소', description: '부산광역시 전기차 충전소 현황', emoji: '⚡' },
+];
+
 export function getAllUrls(): string[] {
   return [
     BASE_URL,
     ...CALCULATOR_PAGES.map((page) => `${BASE_URL}${page.path}`),
     ...GUIDE_PAGES.map((page) => `${BASE_URL}${page.path}`),
     ...INFO_PAGES.map((page) => `${BASE_URL}${page.path}`),
+    ...EV_CHARGER_PAGES.map((page) => `${BASE_URL}${page.path}`),
   ];
 }

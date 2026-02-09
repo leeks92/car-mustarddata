@@ -1,0 +1,408 @@
+{
+  "regions": [
+    {
+      "sido": "서울특별시",
+      "sidoCode": "11",
+      "sigungu": [
+        {
+          "name": "강남구",
+          "code": "11680",
+          "chargers": [
+            {
+              "id": "ME000001",
+              "name": "강남역 급속충전소",
+              "address": "서울특별시 강남구 테헤란로 123",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "한국전력",
+              "available24h": true,
+              "lat": 37.4979,
+              "lng": 127.0276,
+              "connectorTypes": ["DC콤보", "CHAdeMO"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            },
+            {
+              "id": "ME000002",
+              "name": "삼성동 코엑스 충전소",
+              "address": "서울특별시 강남구 영동대로 513",
+              "chargerType": "급속",
+              "output": "100kW",
+              "operator": "환경부",
+              "available24h": true,
+              "lat": 37.5116,
+              "lng": 127.0595,
+              "connectorTypes": ["DC콤보", "CHAdeMO", "AC3상"],
+              "parkingFree": false,
+              "fee": "324.4원/kWh"
+            },
+            {
+              "id": "ME000003",
+              "name": "역삼동 GS타워 완속충전소",
+              "address": "서울특별시 강남구 논현로 508",
+              "chargerType": "완속",
+              "output": "7kW",
+              "operator": "차지비",
+              "available24h": false,
+              "lat": 37.5018,
+              "lng": 127.0378,
+              "connectorTypes": ["AC완속"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            },
+            {
+              "id": "ME000004",
+              "name": "대치동 공영주차장 충전소",
+              "address": "서울특별시 강남구 삼성로 212",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "한국전력",
+              "available24h": true,
+              "lat": 37.5013,
+              "lng": 127.0573,
+              "connectorTypes": ["DC콤보"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            },
+            {
+              "id": "ME000005",
+              "name": "청담동 갤러리아 충전소",
+              "address": "서울특별시 강남구 압구정로 343",
+              "chargerType": "완속",
+              "output": "7kW",
+              "operator": "에버온",
+              "available24h": false,
+              "lat": 37.5268,
+              "lng": 127.0403,
+              "connectorTypes": ["AC완속"],
+              "parkingFree": false,
+              "fee": "310.0원/kWh"
+            }
+          ]
+        },
+        {
+          "name": "서초구",
+          "code": "11650",
+          "chargers": [
+            {
+              "id": "ME000006",
+              "name": "서초역 공영충전소",
+              "address": "서울특별시 서초구 서초대로 248",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "환경부",
+              "available24h": true,
+              "lat": 37.4919,
+              "lng": 127.0078,
+              "connectorTypes": ["DC콤보", "CHAdeMO"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            },
+            {
+              "id": "ME000007",
+              "name": "반포 세빛섬 충전소",
+              "address": "서울특별시 서초구 올림픽대로 2085-14",
+              "chargerType": "급속",
+              "output": "100kW",
+              "operator": "한국전력",
+              "available24h": true,
+              "lat": 37.5101,
+              "lng": 126.9967,
+              "connectorTypes": ["DC콤보", "AC3상"],
+              "parkingFree": true,
+              "fee": "324.4원/kWh"
+            },
+            {
+              "id": "ME000008",
+              "name": "양재동 AT센터 완속충전소",
+              "address": "서울특별시 서초구 강남대로 27",
+              "chargerType": "완속",
+              "output": "7kW",
+              "operator": "차지비",
+              "available24h": false,
+              "lat": 37.4725,
+              "lng": 127.0399,
+              "connectorTypes": ["AC완속"],
+              "parkingFree": false,
+              "fee": "292.9원/kWh"
+            },
+            {
+              "id": "ME000009",
+              "name": "서초구청 급속충전소",
+              "address": "서울특별시 서초구 남부순환로 2584",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "환경부",
+              "available24h": true,
+              "lat": 37.4837,
+              "lng": 127.0089,
+              "connectorTypes": ["DC콤보", "CHAdeMO"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            }
+          ]
+        },
+        {
+          "name": "송파구",
+          "code": "11710",
+          "chargers": [
+            {
+              "id": "ME000010",
+              "name": "잠실 롯데월드타워 충전소",
+              "address": "서울특별시 송파구 올림픽로 300",
+              "chargerType": "급속",
+              "output": "100kW",
+              "operator": "한국전력",
+              "available24h": true,
+              "lat": 37.5126,
+              "lng": 127.1025,
+              "connectorTypes": ["DC콤보", "CHAdeMO", "AC3상"],
+              "parkingFree": false,
+              "fee": "324.4원/kWh"
+            },
+            {
+              "id": "ME000011",
+              "name": "올림픽공원 주차장 충전소",
+              "address": "서울특별시 송파구 올림픽로 424",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "환경부",
+              "available24h": true,
+              "lat": 37.5209,
+              "lng": 127.1215,
+              "connectorTypes": ["DC콤보", "CHAdeMO"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            },
+            {
+              "id": "ME000012",
+              "name": "가든파이브 완속충전소",
+              "address": "서울특별시 송파구 충민로 66",
+              "chargerType": "완속",
+              "output": "7kW",
+              "operator": "에버온",
+              "available24h": false,
+              "lat": 37.4777,
+              "lng": 127.1265,
+              "connectorTypes": ["AC완속"],
+              "parkingFree": true,
+              "fee": "310.0원/kWh"
+            },
+            {
+              "id": "ME000013",
+              "name": "송파구청 급속충전소",
+              "address": "서울특별시 송파구 올림픽로 326",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "환경부",
+              "available24h": true,
+              "lat": 37.5149,
+              "lng": 127.1059,
+              "connectorTypes": ["DC콤보"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sido": "경기도",
+      "sidoCode": "41",
+      "sigungu": [
+        {
+          "name": "성남시",
+          "code": "41130",
+          "chargers": [
+            {
+              "id": "ME000014",
+              "name": "판교 테크노밸리 급속충전소",
+              "address": "경기도 성남시 분당구 판교역로 235",
+              "chargerType": "급속",
+              "output": "100kW",
+              "operator": "한국전력",
+              "available24h": true,
+              "lat": 37.3944,
+              "lng": 127.1113,
+              "connectorTypes": ["DC콤보", "CHAdeMO", "AC3상"],
+              "parkingFree": true,
+              "fee": "324.4원/kWh"
+            },
+            {
+              "id": "ME000015",
+              "name": "서현역 공영충전소",
+              "address": "경기도 성남시 분당구 서현로 180",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "환경부",
+              "available24h": true,
+              "lat": 37.3841,
+              "lng": 127.1223,
+              "connectorTypes": ["DC콤보", "CHAdeMO"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            },
+            {
+              "id": "ME000016",
+              "name": "야탑역 완속충전소",
+              "address": "경기도 성남시 분당구 야탑로 69",
+              "chargerType": "완속",
+              "output": "7kW",
+              "operator": "차지비",
+              "available24h": false,
+              "lat": 37.4112,
+              "lng": 127.1271,
+              "connectorTypes": ["AC완속"],
+              "parkingFree": false,
+              "fee": "292.9원/kWh"
+            },
+            {
+              "id": "ME000017",
+              "name": "성남시청 급속충전소",
+              "address": "경기도 성남시 중원구 성남대로 997",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "한국전력",
+              "available24h": true,
+              "lat": 37.4203,
+              "lng": 127.1268,
+              "connectorTypes": ["DC콤보"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            }
+          ]
+        },
+        {
+          "name": "수원시",
+          "code": "41110",
+          "chargers": [
+            {
+              "id": "ME000018",
+              "name": "수원역 급속충전소",
+              "address": "경기도 수원시 팔달구 덕영대로 924",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "환경부",
+              "available24h": true,
+              "lat": 37.2657,
+              "lng": 127.0013,
+              "connectorTypes": ["DC콤보", "CHAdeMO"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            },
+            {
+              "id": "ME000019",
+              "name": "광교 컨벤션센터 충전소",
+              "address": "경기도 수원시 영통구 광교중앙로 140",
+              "chargerType": "급속",
+              "output": "100kW",
+              "operator": "한국전력",
+              "available24h": true,
+              "lat": 37.2865,
+              "lng": 127.0589,
+              "connectorTypes": ["DC콤보", "AC3상"],
+              "parkingFree": false,
+              "fee": "324.4원/kWh"
+            },
+            {
+              "id": "ME000020",
+              "name": "수원시청 완속충전소",
+              "address": "경기도 수원시 팔달구 효원로 241",
+              "chargerType": "완속",
+              "output": "7kW",
+              "operator": "에버온",
+              "available24h": false,
+              "lat": 37.2636,
+              "lng": 127.0286,
+              "connectorTypes": ["AC완속"],
+              "parkingFree": true,
+              "fee": "310.0원/kWh"
+            },
+            {
+              "id": "ME000021",
+              "name": "영통역 공영충전소",
+              "address": "경기도 수원시 영통구 영통로 200",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "환경부",
+              "available24h": true,
+              "lat": 37.2525,
+              "lng": 127.0559,
+              "connectorTypes": ["DC콤보", "CHAdeMO"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sido": "부산광역시",
+      "sidoCode": "26",
+      "sigungu": [
+        {
+          "name": "해운대구",
+          "code": "26350",
+          "chargers": [
+            {
+              "id": "ME000022",
+              "name": "해운대 해수욕장 급속충전소",
+              "address": "부산광역시 해운대구 해운대해변로 264",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "환경부",
+              "available24h": true,
+              "lat": 35.1587,
+              "lng": 129.1604,
+              "connectorTypes": ["DC콤보", "CHAdeMO"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            },
+            {
+              "id": "ME000023",
+              "name": "센텀시티 충전소",
+              "address": "부산광역시 해운대구 센텀남대로 35",
+              "chargerType": "급속",
+              "output": "100kW",
+              "operator": "한국전력",
+              "available24h": true,
+              "lat": 35.1696,
+              "lng": 129.1316,
+              "connectorTypes": ["DC콤보", "CHAdeMO", "AC3상"],
+              "parkingFree": false,
+              "fee": "324.4원/kWh"
+            },
+            {
+              "id": "ME000024",
+              "name": "벡스코 완속충전소",
+              "address": "부산광역시 해운대구 APEC로 55",
+              "chargerType": "완속",
+              "output": "7kW",
+              "operator": "차지비",
+              "available24h": false,
+              "lat": 35.1691,
+              "lng": 129.1366,
+              "connectorTypes": ["AC완속"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            },
+            {
+              "id": "ME000025",
+              "name": "해운대구청 급속충전소",
+              "address": "부산광역시 해운대구 중동2로 11",
+              "chargerType": "급속",
+              "output": "50kW",
+              "operator": "환경부",
+              "available24h": true,
+              "lat": 35.1633,
+              "lng": 129.1630,
+              "connectorTypes": ["DC콤보"],
+              "parkingFree": true,
+              "fee": "292.9원/kWh"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
