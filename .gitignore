@@ -35,6 +35,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# ev charger data (API에서 생성되는 대용량 데이터)
+data/ev-chargers/
+data/ev-chargers.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
