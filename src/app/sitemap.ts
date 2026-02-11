@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { CALCULATOR_PAGES, GUIDE_PAGES, INFO_PAGES, EV_CHARGER_PAGES, BASE_URL } from '@/lib/urls';
+import { CALCULATOR_PAGES, GUIDE_PAGES, INFO_PAGES, EV_CHARGER_PAGES, MODEL_PAGES, MODEL_DETAIL_PAGES, TIRE_DETAIL_PAGES, BASE_URL } from '@/lib/urls';
 import {
   getRegions,
   sidoToSlug,
@@ -75,11 +75,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  const modelPages: MetadataRoute.Sitemap = MODEL_PAGES.map((page) => ({
+    url: `${BASE_URL}${page.path}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  const modelDetailPages: MetadataRoute.Sitemap = MODEL_DETAIL_PAGES.map((page) => ({
+    url: `${BASE_URL}${page.path}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  const tireDetailPages: MetadataRoute.Sitemap = TIRE_DETAIL_PAGES.map((page) => ({
+    url: `${BASE_URL}${page.path}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
     ...calculatorPages,
     ...guidePages,
     ...infoPages,
+    ...modelPages,
+    ...modelDetailPages,
+    ...tireDetailPages,
     ...evChargerTopPages,
     ...evChargerSigunguPages,
     ...evChargerStationPages,

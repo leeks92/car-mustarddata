@@ -1,47 +1,191 @@
-import type { EVChargerData, Region, Sigungu, EVCharger } from './ev-types';
-import sampleData from '../../data/ev-chargers-sample.json';
+import * as fs from 'fs';
+import * as path from 'path';
+import type {
+  EVChargerIndex,
+  ChargerIndex,
+  Region,
+  Sigungu,
+  EVCharger,
+} from './ev-types';
 
-function loadData(): EVChargerData {
-  return sampleData as EVChargerData;
+// ──────────────────────────────────────────────
+// 파일 경로
+// ──────────────────────────────────────────────
+
+const DATA_DIR = path.join(process.cwd(), 'data', 'ev-chargers');
+const INDEX_FILE = path.join(DATA_DIR, 'index.json');
+const CHARGER_INDEX_FILE = path.join(DATA_DIR, 'charger-index.json');
+const LEGACY_FILE = path.join(process.cwd(), 'data', 'ev-chargers.json');
+const SAMPLE_FILE = path.join(
+  process.cwd(),
+  'data',
+  'ev-chargers-sample.json'
+);
+
+// ──────────────────────────────────────────────
+// 캐시: 파일별로 한 번만 읽고 재사용
+// ──────────────────────────────────────────────
+
+let cachedIndex: EVChargerIndex | null = null;
+let cachedChargerIndex: ChargerIndex | null = null;
+const regionCache = new Map<string, Region>();
+
+/** 분할 구조 사용 가능 여부 */
+function hasSplitStructure(): boolean {
+  return fs.existsSync(INDEX_FILE);
 }
 
-const data = loadData();
+/** 인덱스 파일 로드 (경량 메타데이터) */
+function getIndex(): EVChargerIndex | null {
+  if (cachedIndex) return cachedIndex;
+  try {
+    if (hasSplitStructure()) {
+      cachedIndex = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf-8'));
+      return cachedIndex;
+    }
+  } catch {
+    // ignore
+  }
+  return null;
+}
 
-/** 전체 지역 목록 */
+/** 충전소 ID → 위치 매핑 로드 */
+function getChargerIndex(): ChargerIndex | null {
+  if (cachedChargerIndex) return cachedChargerIndex;
+  try {
+    if (fs.existsSync(CHARGER_INDEX_FILE)) {
+      cachedChargerIndex = JSON.parse(
+        fs.readFileSync(CHARGER_INDEX_FILE, 'utf-8')
+      );
+      return cachedChargerIndex;
+    }
+  } catch {
+    // ignore
+  }
+  return null;
+}
+
+/** 지역 파일 하나만 로드 (slug 기반) */
+function loadRegion(slug: string): Region | null {
+  if (regionCache.has(slug)) return regionCache.get(slug)!;
+  try {
+    const filePath = path.join(DATA_DIR, `${slug}.json`);
+    if (fs.existsSync(filePath)) {
+      const region = JSON.parse(
+        fs.readFileSync(filePath, 'utf-8')
+      ) as Region;
+      regionCache.set(slug, region);
+      return region;
+    }
+  } catch {
+    // ignore
+  }
+  return null;
+}
+
+// ──────────────────────────────────────────────
+// 레거시 폴백: 분할 구조가 없을 때 사용
+// ──────────────────────────────────────────────
+
+let legacyRegions: Region[] | null = null;
+
+function loadLegacyRegions(): Region[] {
+  if (legacyRegions) return legacyRegions;
+
+  // 레거시 단일 파일
+  try {
+    if (fs.existsSync(LEGACY_FILE)) {
+      const data = JSON.parse(fs.readFileSync(LEGACY_FILE, 'utf-8'));
+      legacyRegions = data.regions || [];
+      return legacyRegions!;
+    }
+  } catch {
+    // ignore
+  }
+
+  // 샘플 데이터
+  try {
+    const data = JSON.parse(fs.readFileSync(SAMPLE_FILE, 'utf-8'));
+    legacyRegions = data.regions || [];
+    return legacyRegions!;
+  } catch {
+    legacyRegions = [];
+    return legacyRegions;
+  }
+}
+
+// ──────────────────────────────────────────────
+// 조회 함수 (lazy loading)
+// ──────────────────────────────────────────────
+
+/** 전체 지역 목록 (분할 구조: 각 지역 파일을 개별 로드) */
 export function getRegions(): Region[] {
-  return data.regions;
+  const index = getIndex();
+  if (index) {
+    return index.regions.map((entry) => {
+      const region = loadRegion(entry.slug);
+      return region!;
+    }).filter(Boolean);
+  }
+  return loadLegacyRegions();
 }
 
-/** 시도 코드로 지역 조회 */
+/** 시도 코드로 지역 조회 (해당 지역 파일 1개만 로드) */
 export function getRegionBySidoCode(sidoCode: string): Region | undefined {
-  return data.regions.find((r) => r.sidoCode === sidoCode);
+  const index = getIndex();
+  if (index) {
+    const entry = index.regions.find((r) => r.sidoCode === sidoCode);
+    if (!entry) return undefined;
+    return loadRegion(entry.slug) ?? undefined;
+  }
+  return loadLegacyRegions().find((r) => r.sidoCode === sidoCode);
 }
 
-/** 시도 이름(슬러그)으로 지역 조회 */
+/** 시도 이름(슬러그)으로 지역 조회 (해당 지역 파일 1개만 로드) */
 export function getRegionBySlug(slug: string): Region | undefined {
-  return data.regions.find((r) => sidoToSlug(r.sido) === slug);
+  const index = getIndex();
+  if (index) {
+    const entry = index.regions.find((r) => r.slug === slug);
+    if (!entry) return undefined;
+    return loadRegion(entry.slug) ?? undefined;
+  }
+  return loadLegacyRegions().find((r) => sidoToSlug(r.sido) === slug);
 }
 
-/** 시군구 코드로 시군구 조회 */
+/** 시군구 코드로 시군구 조회 (해당 지역 파일 1개만 로드) */
 export function getSigunguByCode(
   sidoSlug: string,
   sigunguSlug: string
 ): { region: Region; sigungu: Sigungu } | undefined {
   const region = getRegionBySlug(sidoSlug);
   if (!region) return undefined;
-  const sido = sidoSlug;
   const sigungu = region.sigungu.find(
-    (s) => sigunguToSlug(s.name, sido) === sigunguSlug
+    (s) => sigunguToSlug(s.name, sidoSlug) === sigunguSlug
   );
   if (!sigungu) return undefined;
   return { region, sigungu };
 }
 
-/** 충전소 ID로 조회 */
+/** 충전소 ID로 조회 (charger-index로 위치 특정 → 해당 지역 파일 1개만 로드) */
 export function getChargerById(
   id: string
 ): { charger: EVCharger; sigungu: Sigungu; region: Region } | undefined {
-  for (const region of data.regions) {
+  // 분할 구조: charger-index.json으로 위치를 바로 특정
+  const ci = getChargerIndex();
+  if (ci && ci[id]) {
+    const loc = ci[id];
+    const region = loadRegion(loc.r);
+    if (region) {
+      for (const sigungu of region.sigungu) {
+        const charger = sigungu.chargers.find((c) => c.id === id);
+        if (charger) return { charger, sigungu, region };
+      }
+    }
+  }
+
+  // 폴백: 전체 순회
+  const regions = getIndex() ? getRegions() : loadLegacyRegions();
+  for (const region of regions) {
     for (const sigungu of region.sigungu) {
       const charger = sigungu.chargers.find((c) => c.id === id);
       if (charger) return { charger, sigungu, region };
@@ -57,7 +201,8 @@ export function getAllChargers(): {
   region: Region;
 }[] {
   const result: { charger: EVCharger; sigungu: Sigungu; region: Region }[] = [];
-  for (const region of data.regions) {
+  const regions = getRegions();
+  for (const region of regions) {
     for (const sigungu of region.sigungu) {
       for (const charger of sigungu.chargers) {
         result.push({ charger, sigungu, region });
@@ -67,10 +212,12 @@ export function getAllChargers(): {
   return result;
 }
 
-/** 전체 충전소 수 */
+/** 전체 충전소 수 (인덱스만으로 계산 — 데이터 파일 로드 불필요) */
 export function getTotalChargerCount(): number {
+  const index = getIndex();
+  if (index) return index.totalChargers;
   let count = 0;
-  for (const region of data.regions) {
+  for (const region of loadLegacyRegions()) {
     for (const sigungu of region.sigungu) {
       count += sigungu.chargers.length;
     }
@@ -93,6 +240,23 @@ export function getChargerTypeCount(chargers: EVCharger[]): {
     slow: chargers.filter((c) => c.chargerType === '완속').length,
   };
 }
+
+// ──────────────────────────────────────────────
+// 인덱스 기반 조회 (데이터 파일 로드 불필요)
+// ──────────────────────────────────────────────
+
+/**
+ * 인덱스에서 지역별 요약 정보 조회 (데이터 파일 로드 없이 통계만)
+ * 메인 페이지의 지역 카드에 사용
+ */
+export function getRegionSummaries(): EVChargerIndex['regions'] | null {
+  const index = getIndex();
+  return index ? index.regions : null;
+}
+
+// ──────────────────────────────────────────────
+// 슬러그 변환
+// ──────────────────────────────────────────────
 
 /** 시도명 → URL 슬러그 변환 */
 export function sidoToSlug(sido: string): string {
@@ -303,7 +467,7 @@ export function sigunguToSlug(name: string, sidoSlug?: string): string {
     if (slug) return slug;
   }
   // 시도 없이 조회 (유일한 이름인 경우 대응)
-  for (const [sido, n, slug] of SIGUNGU_SLUG_ENTRIES) {
+  for (const [, n, slug] of SIGUNGU_SLUG_ENTRIES) {
     if (n === name) return slug;
   }
   return name.replace(/\s+/g, '-').toLowerCase();
@@ -321,15 +485,34 @@ export function slugToSigungu(slug: string, sidoSlug?: string): string {
   return slug;
 }
 
-/** generateStaticParams를 위한 전체 시도 슬러그 */
+// ──────────────────────────────────────────────
+// Static generation 지원 (인덱스 기반 — 데이터 파일 로드 최소화)
+// ──────────────────────────────────────────────
+
+/** generateStaticParams를 위한 전체 시도 슬러그 (인덱스만 사용) */
 export function getAllSidoSlugs(): string[] {
-  return data.regions.map((r) => sidoToSlug(r.sido));
+  const index = getIndex();
+  if (index) {
+    return index.regions.map((r) => r.slug);
+  }
+  return loadLegacyRegions().map((r) => sidoToSlug(r.sido));
 }
 
-/** generateStaticParams를 위한 전체 시도+시군구 슬러그 */
+/** generateStaticParams를 위한 전체 시도+시군구 슬러그 (인덱스만 사용) */
 export function getAllSigunguParams(): { sido: string; sigungu: string }[] {
+  const index = getIndex();
+  if (index) {
+    const params: { sido: string; sigungu: string }[] = [];
+    for (const region of index.regions) {
+      for (const sg of region.sigungu) {
+        params.push({ sido: region.slug, sigungu: sg.slug });
+      }
+    }
+    return params;
+  }
+  // 레거시 폴백
   const params: { sido: string; sigungu: string }[] = [];
-  for (const region of data.regions) {
+  for (const region of loadLegacyRegions()) {
     for (const sigungu of region.sigungu) {
       const sidoSlug = sidoToSlug(region.sido);
       params.push({
@@ -341,10 +524,15 @@ export function getAllSigunguParams(): { sido: string; sigungu: string }[] {
   return params;
 }
 
-/** generateStaticParams를 위한 전체 충전소 ID */
+/** generateStaticParams를 위한 전체 충전소 ID (charger-index만 사용) */
 export function getAllChargerIds(): string[] {
+  const ci = getChargerIndex();
+  if (ci) {
+    return Object.keys(ci);
+  }
+  // 레거시 폴백
   const ids: string[] = [];
-  for (const region of data.regions) {
+  for (const region of loadLegacyRegions()) {
     for (const sigungu of region.sigungu) {
       for (const charger of sigungu.chargers) {
         ids.push(charger.id);

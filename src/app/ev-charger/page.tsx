@@ -3,11 +3,8 @@ import Link from 'next/link';
 import { BASE_URL } from '@/lib/urls';
 import JsonLd from '@/components/JsonLd';
 import {
-  getRegions,
+  getRegionSummaries,
   getTotalChargerCount,
-  getRegionChargerCount,
-  getChargerTypeCount,
-  sidoToSlug,
 } from '@/lib/ev-data';
 
 export const metadata: Metadata = {
@@ -52,8 +49,14 @@ const faqItems = [
 ];
 
 export default function EVChargerMainPage() {
-  const regions = getRegions();
+  const regionSummaries = getRegionSummaries();
   const totalCount = getTotalChargerCount();
+  const totalFast = regionSummaries
+    ? regionSummaries.reduce((s, r) => s + r.fastCount, 0)
+    : 0;
+  const totalSlow = regionSummaries
+    ? regionSummaries.reduce((s, r) => s + r.slowCount, 0)
+    : 0;
 
   return (
     <>
@@ -107,29 +110,19 @@ export default function EVChargerMainPage() {
             </div>
             <div className="bg-white rounded-2xl border border-gray-100 p-5 text-center">
               <div className="text-3xl font-extrabold text-gray-900">
-                {regions.length}
+                {regionSummaries?.length ?? 0}
               </div>
               <div className="text-sm text-gray-500 mt-1">지역(시도)</div>
             </div>
             <div className="bg-white rounded-2xl border border-gray-100 p-5 text-center">
               <div className="text-3xl font-extrabold text-amber-600">
-                {regions.reduce((sum, r) => {
-                  const counts = r.sigungu.flatMap((s) => s.chargers);
-                  return (
-                    sum + counts.filter((c) => c.chargerType === '급속').length
-                  );
-                }, 0)}
+                {totalFast}
               </div>
               <div className="text-sm text-gray-500 mt-1">급속 충전소</div>
             </div>
             <div className="bg-white rounded-2xl border border-gray-100 p-5 text-center">
               <div className="text-3xl font-extrabold text-blue-600">
-                {regions.reduce((sum, r) => {
-                  const counts = r.sigungu.flatMap((s) => s.chargers);
-                  return (
-                    sum + counts.filter((c) => c.chargerType === '완속').length
-                  );
-                }, 0)}
+                {totalSlow}
               </div>
               <div className="text-sm text-gray-500 mt-1">완속 충전소</div>
             </div>
@@ -142,45 +135,40 @@ export default function EVChargerMainPage() {
             지역별 전기차 충전소
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {regions.map((region) => {
-              const count = getRegionChargerCount(region);
-              const allChargers = region.sigungu.flatMap((s) => s.chargers);
-              const typeCounts = getChargerTypeCount(allChargers);
-              return (
-                <Link
-                  key={region.sidoCode}
-                  href={`/ev-charger/${sidoToSlug(region.sido)}`}
-                  className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:border-amber-200 transition-all"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-lg font-bold text-gray-900">
-                      {region.sido}
-                    </h3>
-                    <span className="text-2xl">⚡</span>
-                  </div>
-                  <div className="text-sm text-gray-600 space-y-1">
-                    <p>
-                      총 <span className="font-semibold text-gray-900">{count}개</span>{' '}
-                      충전소
-                    </p>
-                    <p>
-                      급속{' '}
-                      <span className="font-semibold text-amber-600">
-                        {typeCounts.fast}
-                      </span>
-                      개 · 완속{' '}
-                      <span className="font-semibold text-blue-600">
-                        {typeCounts.slow}
-                      </span>
-                      개
-                    </p>
-                    <p className="text-gray-400">
-                      {region.sigungu.length}개 시군구
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
+            {(regionSummaries ?? []).map((region) => (
+              <Link
+                key={region.sidoCode}
+                href={`/ev-charger/${region.slug}`}
+                className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:border-amber-200 transition-all"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-lg font-bold text-gray-900">
+                    {region.sido}
+                  </h3>
+                  <span className="text-2xl">⚡</span>
+                </div>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>
+                    총 <span className="font-semibold text-gray-900">{region.chargerCount}개</span>{' '}
+                    충전소
+                  </p>
+                  <p>
+                    급속{' '}
+                    <span className="font-semibold text-amber-600">
+                      {region.fastCount}
+                    </span>
+                    개 · 완속{' '}
+                    <span className="font-semibold text-blue-600">
+                      {region.slowCount}
+                    </span>
+                    개
+                  </p>
+                  <p className="text-gray-400">
+                    {region.sigunguCount}개 시군구
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
 

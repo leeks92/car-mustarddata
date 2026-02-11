@@ -82,6 +82,72 @@ export const GUIDE_PAGES = [
     description: '3가지 자동차 구매 방식의 장단점과 총비용을 비교합니다.',
     emoji: '💰',
   },
+  {
+    path: '/guide/car-insurance',
+    title: '자동차보험료 비교 가이드',
+    description: '보험사별 보험료 비교, 다이렉트 할인, 특약 선택 방법을 정리했습니다.',
+    emoji: '🛡️',
+  },
+  {
+    path: '/guide/lease-vs-rent',
+    title: '리스 vs 장기렌트 비교',
+    description: '리스와 장기렌트의 비용, 세금 혜택, 장단점을 비교합니다.',
+    emoji: '🔄',
+  },
+  {
+    path: '/guide/car-tax-refund',
+    title: '자동차세 환급 방법',
+    description: '폐차·양도·말소 시 자동차세 환급 대상과 신청 방법을 정리했습니다.',
+    emoji: '💵',
+  },
+  {
+    path: '/guide/new-car-checklist',
+    title: '신차 출고 후 체크리스트',
+    description: '신차 출고 후 보험, 등록, 길들이기 등 필수 점검 항목을 정리했습니다.',
+    emoji: '✅',
+  },
+  {
+    path: '/guide/insurance-by-car',
+    title: '차종별 보험료 비교',
+    description: '경차·중형·SUV·전기차·수입차 인기 모델의 보험료를 비교합니다.',
+    emoji: '📊',
+  },
+  {
+    path: '/guide/ownership-transfer',
+    title: '자동차 명의이전 방법',
+    description: '명의이전 절차, 필요 서류, 비용, 과태료 정보를 총정리했습니다.',
+    emoji: '📝',
+  },
+  {
+    path: '/guide/beginner-driver',
+    title: '초보운전 필수 가이드',
+    description: '첫 차 선택, 보험, 주차, 고속도로, 사고 대처법을 정리했습니다.',
+    emoji: '🔰',
+  },
+  {
+    path: '/guide/tire-cost',
+    title: '타이어 교체 비용·주기',
+    description: '차종별 타이어 교체 비용, 교체 주기, 브랜드별 가격, 절약 방법을 총정리했습니다.',
+    emoji: '🛞',
+  },
+  {
+    path: '/guide/imported-car-buying',
+    title: '수입차 구매 완벽 가이드',
+    description: '수입차 구매 시 공식 vs 병행수입 비교, 절차, 보증, 비용 총정리. 벤츠·BMW·아우디·렉서스·포르쉐 등.',
+    emoji: '🌐',
+  },
+  {
+    path: '/guide/imported-car-maintenance',
+    title: '수입차 유지비 현실 가이드',
+    description: '수입차 정비비, 부품비, 보험료 등 실제 유지비를 국산차와 비교합니다. 브랜드별·차종별 상세 비교.',
+    emoji: '🔧',
+  },
+  {
+    path: '/guide/imported-car-insurance',
+    title: '수입차 보험료 절약 가이드',
+    description: '수입차 보험료가 비싼 이유와 절약 방법을 정리했습니다. 브랜드별·모델별 보험료 비교.',
+    emoji: '🛡️',
+  },
 ];
 
 export const INFO_PAGES = [
@@ -115,6 +181,12 @@ export const INFO_PAGES = [
     description: '중고차 이전 등록 비용, 감면 대상, 명의이전 절차를 확인하세요.',
     emoji: '🔄',
   },
+  {
+    path: '/calculator/ev-charging-cost',
+    title: '전기차 충전 비용',
+    description: '충전 방식별 요금 비교와 내연기관 대비 절약 금액을 확인하세요.',
+    emoji: '🔋',
+  },
 ];
 
 export const EV_CHARGER_PAGES = [
@@ -130,6 +202,66 @@ export const EV_CHARGER_PAGES = [
   { path: '/ev-charger/busan', title: '부산 전기차 충전소', description: '부산광역시 전기차 충전소 현황', emoji: '⚡' },
 ];
 
+export const MODEL_PAGES = [
+  { path: '/models/morning', title: '기아 모닝 유지비·세금', description: '모닝의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚗' },
+  { path: '/models/ray', title: '기아 레이 유지비·세금', description: '레이의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚐' },
+  { path: '/models/avante', title: '현대 아반떼 유지비·세금', description: '아반떼의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚙' },
+  { path: '/models/k3', title: '기아 K3 유지비·세금', description: 'K3의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚙' },
+  { path: '/models/sonata', title: '현대 쏘나타 유지비·세금', description: '쏘나타의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚘' },
+  { path: '/models/k5', title: '기아 K5 유지비·세금', description: 'K5의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚘' },
+  { path: '/models/grandeur', title: '현대 그랜저 유지비·세금', description: '그랜저의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚗' },
+  { path: '/models/k8', title: '기아 K8 유지비·세금', description: 'K8의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚗' },
+  { path: '/models/tucson', title: '현대 투싼 유지비·세금', description: '투싼의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚙' },
+  { path: '/models/sorento', title: '기아 쏘렌토 유지비·세금', description: '쏘렌토의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚙' },
+  { path: '/models/palisade', title: '현대 팰리세이드 유지비·세금', description: '팰리세이드의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚙' },
+  { path: '/models/ioniq5', title: '현대 아이오닉5 유지비·세금', description: '아이오닉5의 자동차세, 보험료, 취등록세, 충전비 총정리', emoji: '⚡' },
+  { path: '/models/ev6', title: '기아 EV6 유지비·세금', description: 'EV6의 자동차세, 보험료, 취등록세, 충전비 총정리', emoji: '⚡' },
+  { path: '/models/tesla-model-y', title: '테슬라 모델Y 유지비·세금', description: '테슬라 모델Y의 자동차세, 보험료, 취등록세, 충전비 총정리', emoji: '⚡' },
+  // 수입차
+  { path: '/models/benz-e-class', title: '벤츠 E클래스 유지비·세금', description: '벤츠 E클래스의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔷' },
+  { path: '/models/benz-c-class', title: '벤츠 C클래스 유지비·세금', description: '벤츠 C클래스의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔷' },
+  { path: '/models/bmw-5-series', title: 'BMW 5시리즈 유지비·세금', description: 'BMW 5시리즈의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔵' },
+  { path: '/models/bmw-3-series', title: 'BMW 3시리즈 유지비·세금', description: 'BMW 3시리즈의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔵' },
+  { path: '/models/audi-a6', title: '아우디 A6 유지비·세금', description: '아우디 A6의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '⚪' },
+  { path: '/models/audi-a4', title: '아우디 A4 유지비·세금', description: '아우디 A4의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '⚪' },
+  { path: '/models/volvo-xc60', title: '볼보 XC60 유지비·세금', description: '볼보 XC60의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔘' },
+  { path: '/models/bmw-ix', title: 'BMW iX 유지비·세금', description: 'BMW iX의 자동차세, 보험료, 취등록세, 충전비 총정리', emoji: '🔵' },
+  // 추가 수입차
+  { path: '/models/benz-glc', title: '벤츠 GLC 유지비·세금', description: '벤츠 GLC의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔷' },
+  { path: '/models/benz-gle', title: '벤츠 GLE 유지비·세금', description: '벤츠 GLE의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔷' },
+  { path: '/models/bmw-x3', title: 'BMW X3 유지비·세금', description: 'BMW X3의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔵' },
+  { path: '/models/bmw-x5', title: 'BMW X5 유지비·세금', description: 'BMW X5의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔵' },
+  { path: '/models/lexus-es', title: '렉서스 ES 유지비·세금', description: '렉서스 ES의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔴' },
+  { path: '/models/lexus-rx', title: '렉서스 RX 유지비·세금', description: '렉서스 RX의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔴' },
+  { path: '/models/toyota-camry', title: '토요타 캠리 유지비·세금', description: '토요타 캠리의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔴' },
+  { path: '/models/vw-tiguan', title: '폭스바겐 티구안 유지비·세금', description: '폭스바겐 티구안의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🟡' },
+  { path: '/models/porsche-cayenne', title: '포르쉐 카이엔 유지비·세금', description: '포르쉐 카이엔의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🔶' },
+  { path: '/models/mini-cooper', title: '미니 쿠퍼 유지비·세금', description: '미니 쿠퍼의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🟢' },
+];
+
+// 타이어 브랜드별 비교 서브 페이지
+const TIRE_CATEGORY_SLUGS = ['compact', 'subcompact', 'midsize', 'fullsize', 'suv', 'ev', 'imported'] as const;
+export const TIRE_DETAIL_PAGES = TIRE_CATEGORY_SLUGS.map((slug) => ({
+  path: `/guide/tire-cost/${slug}`,
+}));
+
+// 차량별 상세 서브 페이지 (Hub & Spoke의 Spoke)
+const MODEL_SUB_TYPES = ['car-tax', 'insurance', 'registration-tax', 'maintenance'] as const;
+const MODEL_SLUGS = [
+  'morning', 'ray', 'avante', 'k3', 'sonata', 'k5', 'grandeur', 'k8',
+  'tucson', 'sorento', 'palisade', 'ioniq5', 'ev6', 'tesla-model-y',
+  'benz-e-class', 'benz-c-class', 'bmw-5-series', 'bmw-3-series',
+  'audi-a6', 'audi-a4', 'volvo-xc60', 'bmw-ix',
+  'benz-glc', 'benz-gle', 'bmw-x3', 'bmw-x5',
+  'lexus-es', 'lexus-rx', 'toyota-camry', 'vw-tiguan',
+  'porsche-cayenne', 'mini-cooper',
+];
+export const MODEL_DETAIL_PAGES = MODEL_SLUGS.flatMap((slug) =>
+  MODEL_SUB_TYPES.map((sub) => ({
+    path: `/models/${slug}/${sub}`,
+  }))
+);
+
 export function getAllUrls(): string[] {
   return [
     BASE_URL,
@@ -137,5 +269,8 @@ export function getAllUrls(): string[] {
     ...GUIDE_PAGES.map((page) => `${BASE_URL}${page.path}`),
     ...INFO_PAGES.map((page) => `${BASE_URL}${page.path}`),
     ...EV_CHARGER_PAGES.map((page) => `${BASE_URL}${page.path}`),
+    ...MODEL_PAGES.map((page) => `${BASE_URL}${page.path}`),
+    ...MODEL_DETAIL_PAGES.map((page) => `${BASE_URL}${page.path}`),
+    ...TIRE_DETAIL_PAGES.map((page) => `${BASE_URL}${page.path}`),
   ];
 }

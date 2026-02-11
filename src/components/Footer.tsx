@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SisterSites from './SisterSites';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -73,7 +74,34 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-3 text-gray-900">유용한 사이트</h3>
+            <h3 className="font-bold mb-3 text-gray-900">연관 서비스</h3>
+            <ul className="space-y-2 text-sm text-gray-700">
+              <li>
+                <a
+                  href="https://parking.mustarddata.com"
+                  className="hover:text-amber-600"
+                >
+                  주차장 찾기
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://parking.mustarddata.com/free"
+                  className="hover:text-amber-600"
+                >
+                  무료 주차장
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://parking.mustarddata.com/compare"
+                  className="hover:text-amber-600"
+                >
+                  주차 요금 비교
+                </a>
+              </li>
+            </ul>
+            <h3 className="font-bold mb-3 mt-5 text-gray-900">유용한 사이트</h3>
             <ul className="space-y-2 text-sm text-gray-700">
               <li>
                 <a
@@ -108,59 +136,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-3 text-gray-900">관련 서비스</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
-              <li>
-                <a
-                  href="https://calc.mustarddata.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-amber-600"
-                >
-                  금융 계산기
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://bus.mustarddata.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-amber-600"
-                >
-                  버스 시간표
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://train.mustarddata.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-amber-600"
-                >
-                  기차 시간표
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://apt.mustarddata.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-amber-600"
-                >
-                  부동산 실거래가
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://rest.mustarddata.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-amber-600"
-                >
-                  고속도로 휴게소
-                </a>
-              </li>
-            </ul>
+            <SisterSites currentSite="car" />
           </div>
         </div>
         <div className="mt-8 pt-6 border-t text-center text-sm text-gray-600">
@@ -171,6 +147,18 @@ export default function Footer() {
           <p className="mt-2">
             자동차세·취등록세는 2026년 지방세법 기준, 과태료는 도로교통법 시행규칙
             기준입니다.
+          </p>
+          <p className="mt-2">
+            전기차 충전소 데이터 출처:{' '}
+            <a
+              href="https://www.data.go.kr/data/15076352/openapi.do"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-amber-600"
+            >
+              한국환경공단 전기자동차 충전소 정보
+            </a>{' '}
+            (공공데이터포털)
           </p>
         </div>
       </div>

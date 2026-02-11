@@ -65,6 +65,9 @@ jobs:
             "https://car.mustarddata.com/guide/car-tax-prepay/",
             "https://car.mustarddata.com/guide/maintenance-cost/",
             "https://car.mustarddata.com/guide/cash-vs-loan-vs-lease/",
+            "https://car.mustarddata.com/guide/imported-car-buying/",
+            "https://car.mustarddata.com/guide/imported-car-maintenance/",
+            "https://car.mustarddata.com/guide/imported-car-insurance/",
             "https://car.mustarddata.com/recall/",
             "https://car.mustarddata.com/inspection/",
             "https://car.mustarddata.com/calculator/car-tax/cc/",
@@ -74,6 +77,16 @@ jobs:
             "https://car.mustarddata.com/ev-charger/seoul/",
             "https://car.mustarddata.com/ev-charger/gyeonggi/",
             "https://car.mustarddata.com/ev-charger/busan/",
+            "https://car.mustarddata.com/models/benz-glc/",
+            "https://car.mustarddata.com/models/benz-gle/",
+            "https://car.mustarddata.com/models/bmw-x3/",
+            "https://car.mustarddata.com/models/bmw-x5/",
+            "https://car.mustarddata.com/models/lexus-es/",
+            "https://car.mustarddata.com/models/lexus-rx/",
+            "https://car.mustarddata.com/models/toyota-camry/",
+            "https://car.mustarddata.com/models/vw-tiguan/",
+            "https://car.mustarddata.com/models/porsche-cayenne/",
+            "https://car.mustarddata.com/models/mini-cooper/",
             "https://car.mustarddata.com/sitemap.xml"
           ]'
 
@@ -110,6 +123,9 @@ jobs:
             "https://car.mustarddata.com/guide/car-tax-prepay/"
             "https://car.mustarddata.com/guide/maintenance-cost/"
             "https://car.mustarddata.com/guide/cash-vs-loan-vs-lease/"
+            "https://car.mustarddata.com/guide/imported-car-buying/"
+            "https://car.mustarddata.com/guide/imported-car-maintenance/"
+            "https://car.mustarddata.com/guide/imported-car-insurance/"
             "https://car.mustarddata.com/recall/"
             "https://car.mustarddata.com/inspection/"
             "https://car.mustarddata.com/calculator/car-tax/cc/"
@@ -119,6 +135,16 @@ jobs:
             "https://car.mustarddata.com/ev-charger/seoul/"
             "https://car.mustarddata.com/ev-charger/gyeonggi/"
             "https://car.mustarddata.com/ev-charger/busan/"
+            "https://car.mustarddata.com/models/benz-glc/"
+            "https://car.mustarddata.com/models/benz-gle/"
+            "https://car.mustarddata.com/models/bmw-x3/"
+            "https://car.mustarddata.com/models/bmw-x5/"
+            "https://car.mustarddata.com/models/lexus-es/"
+            "https://car.mustarddata.com/models/lexus-rx/"
+            "https://car.mustarddata.com/models/toyota-camry/"
+            "https://car.mustarddata.com/models/vw-tiguan/"
+            "https://car.mustarddata.com/models/porsche-cayenne/"
+            "https://car.mustarddata.com/models/mini-cooper/"
           )
 
           # JWT 생성
