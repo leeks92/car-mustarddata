@@ -232,6 +232,67 @@ export const GUIDE_PAGES = [
     description: '자동세차, 손세차, 셀프세차 비용 비교와 세차 주기, 관리 팁을 정리했습니다.',
     emoji: '🧽',
   },
+  // 11차 가이드
+  {
+    path: '/guide/first-car-recommendation',
+    title: '첫차 추천 가이드 2026',
+    description: '예산별·용도별 첫차 추천, 신차 vs 중고차 선택 기준, 보험·유지비 고려사항을 총정리했습니다.',
+    emoji: '🚗',
+  },
+  {
+    path: '/guide/suv-vs-sedan',
+    title: 'SUV vs 세단 비교',
+    description: 'SUV와 세단의 연비, 유지비, 안전성, 실용성, 감가상각을 비교합니다.',
+    emoji: '🚙',
+  },
+  {
+    path: '/guide/car-battery-replacement',
+    title: '자동차 배터리 교체 비용·시기',
+    description: '자동차 배터리 수명, 교체 시기 판단법, 가격 비교, 셀프 교체 방법을 정리했습니다.',
+    emoji: '🔋',
+  },
+  {
+    path: '/guide/car-air-conditioner',
+    title: '자동차 에어컨 관리·수리 비용',
+    description: '자동차 에어컨 냉매 충전 비용, 고장 증상, 수리비, 관리 방법을 총정리했습니다.',
+    emoji: '❄️',
+  },
+  {
+    path: '/guide/brake-pad-replacement',
+    title: '브레이크 패드 교체 비용·시기',
+    description: '브레이크 패드·디스크 교체 주기, 비용, 마모 확인법, 정비소 선택 팁을 정리했습니다.',
+    emoji: '🛑',
+  },
+  {
+    path: '/guide/winter-driving',
+    title: '겨울철 차량 관리·안전 운전 가이드',
+    description: '겨울철 차량 점검 항목, 스노우타이어, 결빙 도로 운전법, 동파 방지법을 총정리했습니다.',
+    emoji: '❄️',
+  },
+  {
+    path: '/guide/long-distance-driving',
+    title: '장거리 운전 준비 체크리스트',
+    description: '장거리 운전 전 차량 점검, 필수 준비물, 피로 관리, 고속도로 운전 팁을 정리했습니다.',
+    emoji: '🛣️',
+  },
+  {
+    path: '/guide/car-camping',
+    title: '차박 준비물·추천 차종 가이드',
+    description: '차박 필수 준비물, 추천 차종, 차박 명소, 안전 수칙, 비용 정보를 총정리했습니다.',
+    emoji: '⛺',
+  },
+  {
+    path: '/guide/car-lease-return',
+    title: '리스 만기 반납·인수 가이드',
+    description: '자동차 리스 만기 시 반납, 인수, 재리스 선택 기준과 비용 비교를 정리했습니다.',
+    emoji: '📋',
+  },
+  {
+    path: '/guide/international-driving-permit',
+    title: '국제운전면허증 발급 방법',
+    description: '국제운전면허증 발급 장소, 비용, 필요 서류, 유효기간, 해외 운전 팁을 총정리했습니다.',
+    emoji: '🌍',
+  },
 ];
 
 export const INFO_PAGES = [
@@ -294,6 +355,19 @@ export const INFO_PAGES = [
     title: '자동차 대출 비교 계산기',
     description: '은행·캐피탈·딜러 자동차 대출의 금리, 월 납입금, 총 이자를 비교합니다.',
     emoji: '🏦',
+  },
+  // 11차 계산기
+  {
+    path: '/calculator/car-ownership-cost',
+    title: '자동차 총 소유비용(TCO) 계산기',
+    description: '차량 구입비부터 세금, 보험, 유류비, 정비비, 감가상각까지 자동차 총 소유비용을 계산합니다.',
+    emoji: '💰',
+  },
+  {
+    path: '/calculator/insurance-estimate',
+    title: '자동차보험료 간편 견적 계산기',
+    description: '나이, 차종, 운전 경력 등을 입력하면 예상 자동차보험료를 간편하게 견적합니다.',
+    emoji: '🛡️',
   },
 ];
 
