@@ -148,6 +148,90 @@ export const GUIDE_PAGES = [
     description: '수입차 보험료가 비싼 이유와 절약 방법을 정리했습니다. 브랜드별·모델별 보험료 비교.',
     emoji: '🛡️',
   },
+  {
+    path: '/guide/used-car-buying-checklist',
+    title: '중고차 구매 체크리스트',
+    description: '중고차 구매 전 차량 상태 점검, 서류 확인, 가격 협상, 구매 후 절차를 총정리했습니다.',
+    emoji: '📋',
+  },
+  {
+    path: '/guide/car-insurance-renewal',
+    title: '자동차보험 갱신 가이드',
+    description: '자동차보험 갱신 시기, 보험사 변경 방법, 보험료 절약 팁을 총정리했습니다.',
+    emoji: '🔄',
+  },
+  {
+    path: '/guide/scrap-car-subsidy',
+    title: '폐차 보상금·조기폐차 지원금',
+    description: '폐차 보상금 종류, 조기폐차 지원금 대상·조건, 신청 절차를 총정리했습니다.',
+    emoji: '♻️',
+  },
+  {
+    path: '/guide/compact-car-benefits',
+    title: '경차 혜택 총정리 2026',
+    description: '2026년 경차 세금 혜택, 통행료 할인, 주차 혜택, 유류세 환급 등 모든 혜택을 정리했습니다.',
+    emoji: '🚙',
+  },
+  {
+    path: '/guide/hybrid-vs-gasoline',
+    title: '하이브리드 vs 가솔린 비교',
+    description: '하이브리드와 가솔린 차량의 연비, 유지비, 5년 총비용을 비교합니다.',
+    emoji: '🔋',
+  },
+  {
+    path: '/guide/driver-license-cost',
+    title: '운전면허 취득 비용 총정리',
+    description: '운전면허 종류별 비용, 학원 vs 독학 비교, 단계별 과정, 절약 방법을 정리했습니다.',
+    emoji: '🪪',
+  },
+  {
+    path: '/guide/car-accident-process',
+    title: '교통사고 대처 방법',
+    description: '교통사고 발생 시 현장 대처, 보험 처리, 합의 방법, 과실 비율 기준을 총정리했습니다.',
+    emoji: '🚨',
+  },
+  {
+    path: '/guide/car-scratch-repair-cost',
+    title: '자동차 흠집·판금 수리 비용',
+    description: '자동차 흠집, 찍힘, 판금·도색 수리 비용과 보험 처리 여부 기준을 정리했습니다.',
+    emoji: '🔨',
+  },
+  {
+    path: '/guide/engine-oil-change',
+    title: '엔진오일 교체 주기·비용 가이드',
+    description: '엔진오일 종류별 교체 주기, 비용, 브랜드별 가격, 셀프 교체 방법을 총정리했습니다.',
+    emoji: '🛢️',
+  },
+  {
+    path: '/guide/window-tinting',
+    title: '자동차 썬팅 가격·종류 가이드',
+    description: '자동차 썬팅 종류, 가격대, 브랜드별 비교, 농도 선택 가이드를 정리했습니다.',
+    emoji: '🕶️',
+  },
+  {
+    path: '/guide/dashcam-guide',
+    title: '블랙박스 추천·설치 가이드',
+    description: '블랙박스 종류, 추천 제품, 설치 비용, 선택 기준, 보험 할인 정보를 정리했습니다.',
+    emoji: '📹',
+  },
+  {
+    path: '/guide/diesel-vs-gasoline',
+    title: '디젤 vs 가솔린 비교',
+    description: '디젤과 가솔린 엔진의 연비, 유지비, 5년 총비용, 장단점을 비교합니다.',
+    emoji: '⛽',
+  },
+  {
+    path: '/guide/ev-charging-guide',
+    title: '전기차 충전 방법 완벽 가이드',
+    description: '전기차 충전 방식별 특징, 충전카드 발급, 요금, 앱 사용법을 총정리했습니다.',
+    emoji: '🔌',
+  },
+  {
+    path: '/guide/car-wash-cost',
+    title: '세차 비용·종류 가이드',
+    description: '자동세차, 손세차, 셀프세차 비용 비교와 세차 주기, 관리 팁을 정리했습니다.',
+    emoji: '🧽',
+  },
 ];
 
 export const INFO_PAGES = [
@@ -186,6 +270,30 @@ export const INFO_PAGES = [
     title: '전기차 충전 비용',
     description: '충전 방식별 요금 비교와 내연기관 대비 절약 금액을 확인하세요.',
     emoji: '🔋',
+  },
+  {
+    path: '/calculator/real-fuel-efficiency',
+    title: '실연비 계산기',
+    description: '실제 주행거리와 주유량으로 내 차의 실연비를 계산합니다. 차종별 평균 연비 비교도 확인하세요.',
+    emoji: '⛽',
+  },
+  {
+    path: '/calculator/new-vs-used-car',
+    title: '신차 vs 중고차 총비용 비교',
+    description: '신차와 중고차의 5년 총비용(구입비+세금+보험+유류비+정비비+감가상각)을 비교합니다.',
+    emoji: '🔄',
+  },
+  {
+    path: '/calculator/commute-cost',
+    title: '출퇴근 비용 계산기',
+    description: '자가용·대중교통·자전거 등 출퇴근 수단별 월간·연간 교통비를 비교 계산합니다.',
+    emoji: '🚌',
+  },
+  {
+    path: '/calculator/car-loan-comparison',
+    title: '자동차 대출 비교 계산기',
+    description: '은행·캐피탈·딜러 자동차 대출의 금리, 월 납입금, 총 이자를 비교합니다.',
+    emoji: '🏦',
   },
 ];
 
