@@ -49,58 +49,48 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Submit to IndexNow
+      - name: Fetch URLs from sitemap
+        id: sitemap
         if: success()
         run: |
-          URLS='[
-            "https://car.mustarddata.com/",
-            "https://car.mustarddata.com/calculator/car-tax/",
-            "https://car.mustarddata.com/calculator/registration-tax/",
-            "https://car.mustarddata.com/calculator/installment/",
-            "https://car.mustarddata.com/calculator/fuel-cost/",
-            "https://car.mustarddata.com/calculator/depreciation/",
-            "https://car.mustarddata.com/calculator/penalty/",
-            "https://car.mustarddata.com/guide/new-car-buying/",
-            "https://car.mustarddata.com/guide/ev-subsidy/",
-            "https://car.mustarddata.com/guide/car-tax-prepay/",
-            "https://car.mustarddata.com/guide/maintenance-cost/",
-            "https://car.mustarddata.com/guide/cash-vs-loan-vs-lease/",
-            "https://car.mustarddata.com/guide/imported-car-buying/",
-            "https://car.mustarddata.com/guide/imported-car-maintenance/",
-            "https://car.mustarddata.com/guide/imported-car-insurance/",
-            "https://car.mustarddata.com/recall/",
-            "https://car.mustarddata.com/inspection/",
-            "https://car.mustarddata.com/calculator/car-tax/cc/",
-            "https://car.mustarddata.com/calculator/car-tax/models/",
-            "https://car.mustarddata.com/calculator/registration-tax/used-car/",
-            "https://car.mustarddata.com/ev-charger/",
-            "https://car.mustarddata.com/ev-charger/seoul/",
-            "https://car.mustarddata.com/ev-charger/gyeonggi/",
-            "https://car.mustarddata.com/ev-charger/busan/",
-            "https://car.mustarddata.com/models/benz-glc/",
-            "https://car.mustarddata.com/models/benz-gle/",
-            "https://car.mustarddata.com/models/bmw-x3/",
-            "https://car.mustarddata.com/models/bmw-x5/",
-            "https://car.mustarddata.com/models/lexus-es/",
-            "https://car.mustarddata.com/models/lexus-rx/",
-            "https://car.mustarddata.com/models/toyota-camry/",
-            "https://car.mustarddata.com/models/vw-tiguan/",
-            "https://car.mustarddata.com/models/porsche-cayenne/",
-            "https://car.mustarddata.com/models/mini-cooper/",
-            "https://car.mustarddata.com/sitemap.xml"
-          ]'
+          echo "Waiting for deployment to propagate..."
+          sleep 15
 
-          curl -X POST "https://api.indexnow.org/indexnow" \
+          # sitemap.xml에서 모든 URL 추출
+          SITEMAP=$(curl -s --retry 3 --retry-delay 5 "https://car.mustarddata.com/sitemap.xml")
+          if [ -z "$SITEMAP" ]; then
+            echo "Failed to fetch sitemap.xml"
+            echo "urls=" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          URLS=$(echo "$SITEMAP" | grep -oP '<loc>\K[^<]+')
+          URL_COUNT=$(echo "$URLS" | wc -l)
+          echo "Found $URL_COUNT URLs in sitemap.xml"
+          echo "$URLS" > /tmp/sitemap-urls.txt
+
+          # IndexNow용 JSON 배열 생성
+          JSON_URLS=$(echo "$URLS" | python3 -c "import sys,json; print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))")
+          echo "json_urls=$JSON_URLS" >> $GITHUB_OUTPUT
+          echo "url_count=$URL_COUNT" >> $GITHUB_OUTPUT
+
+      - name: Submit to IndexNow
+        if: success() && steps.sitemap.outputs.url_count != ''
+        run: |
+          URL_COUNT=${{ steps.sitemap.outputs.url_count }}
+          echo "Submitting $URL_COUNT URLs to IndexNow..."
+
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json" \
-            -d "{
-              \"host\": \"car.mustarddata.com\",
-              \"key\": \"95d7b954cbdd0dbfb78b328346fcc866\",
-              \"keyLocation\": \"https://car.mustarddata.com/95d7b954cbdd0dbfb78b328346fcc866.txt\",
-              \"urlList\": $URLS
-            }" || echo "IndexNow submission failed (non-critical)"
+            -d '{
+              "host": "car.mustarddata.com",
+              "key": "95d7b954cbdd0dbfb78b328346fcc866",
+              "keyLocation": "https://car.mustarddata.com/95d7b954cbdd0dbfb78b328346fcc866.txt",
+              "urlList": ${{ steps.sitemap.outputs.json_urls }}
+            }' && echo "IndexNow: submitted $URL_COUNT URLs" || echo "IndexNow submission failed (non-critical)"
 
       - name: Submit to Google Indexing API
-        if: success()
+        if: success() && steps.sitemap.outputs.url_count != ''
         env:
           GOOGLE_SERVICE_ACCOUNT_EMAIL: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
           GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
@@ -109,43 +99,6 @@ jobs:
             echo "Google Indexing API credentials not configured, skipping..."
             exit 0
           fi
-
-          URLS=(
-            "https://car.mustarddata.com/"
-            "https://car.mustarddata.com/calculator/car-tax/"
-            "https://car.mustarddata.com/calculator/registration-tax/"
-            "https://car.mustarddata.com/calculator/installment/"
-            "https://car.mustarddata.com/calculator/fuel-cost/"
-            "https://car.mustarddata.com/calculator/depreciation/"
-            "https://car.mustarddata.com/calculator/penalty/"
-            "https://car.mustarddata.com/guide/new-car-buying/"
-            "https://car.mustarddata.com/guide/ev-subsidy/"
-            "https://car.mustarddata.com/guide/car-tax-prepay/"
-            "https://car.mustarddata.com/guide/maintenance-cost/"
-            "https://car.mustarddata.com/guide/cash-vs-loan-vs-lease/"
-            "https://car.mustarddata.com/guide/imported-car-buying/"
-            "https://car.mustarddata.com/guide/imported-car-maintenance/"
-            "https://car.mustarddata.com/guide/imported-car-insurance/"
-            "https://car.mustarddata.com/recall/"
-            "https://car.mustarddata.com/inspection/"
-            "https://car.mustarddata.com/calculator/car-tax/cc/"
-            "https://car.mustarddata.com/calculator/car-tax/models/"
-            "https://car.mustarddata.com/calculator/registration-tax/used-car/"
-            "https://car.mustarddata.com/ev-charger/"
-            "https://car.mustarddata.com/ev-charger/seoul/"
-            "https://car.mustarddata.com/ev-charger/gyeonggi/"
-            "https://car.mustarddata.com/ev-charger/busan/"
-            "https://car.mustarddata.com/models/benz-glc/"
-            "https://car.mustarddata.com/models/benz-gle/"
-            "https://car.mustarddata.com/models/bmw-x3/"
-            "https://car.mustarddata.com/models/bmw-x5/"
-            "https://car.mustarddata.com/models/lexus-es/"
-            "https://car.mustarddata.com/models/lexus-rx/"
-            "https://car.mustarddata.com/models/toyota-camry/"
-            "https://car.mustarddata.com/models/vw-tiguan/"
-            "https://car.mustarddata.com/models/porsche-cayenne/"
-            "https://car.mustarddata.com/models/mini-cooper/"
-          )
 
           # JWT 생성
           HEADER=$(echo -n '{"alg":"RS256","typ":"JWT"}' | openssl base64 -e | tr '+/' '-_' | tr -d '=\n')
@@ -165,11 +118,20 @@ jobs:
             exit 0
           fi
 
-          for URL in "${URLS[@]}"; do
+          # sitemap에서 추출한 URL로 제출 (일일 200개 제한 준수)
+          COUNT=0
+          MAX=200
+          while IFS= read -r URL; do
+            if [ $COUNT -ge $MAX ]; then
+              echo "Reached daily limit ($MAX), stopping."
+              break
+            fi
             RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X POST "https://indexing.googleapis.com/v3/urlNotifications:publish" \
               -H "Content-Type: application/json" \
               -H "Authorization: Bearer $ACCESS_TOKEN" \
               -d "{\"url\":\"$URL\",\"type\":\"URL_UPDATED\"}")
-            echo "Google Indexing: $URL -> $RESPONSE"
+            echo "Google Indexing [$((COUNT+1))]: $URL -> $RESPONSE"
+            COUNT=$((COUNT+1))
             sleep 0.1
-          done
+          done < /tmp/sitemap-urls.txt
+          echo "Submitted $COUNT URLs to Google Indexing API"
