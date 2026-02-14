@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    # 매주 월요일 KST 06:00 (UTC 21:00 일요일)에 EV 데이터 갱신 + 재빌드
+    - cron: '0 21 * * 0'
   workflow_dispatch:
 
 permissions:
@@ -30,8 +33,31 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Fetch EV charger data (scheduled only)
+        if: github.event_name == 'schedule'
+        env:
+          EV_CHARGER_API_KEY: ${{ secrets.EV_CHARGER_API_KEY }}
+        run: |
+          if [ -z "$EV_CHARGER_API_KEY" ]; then
+            echo "EV_CHARGER_API_KEY not configured, skipping data fetch"
+            exit 0
+          fi
+          echo "Fetching latest EV charger data..."
+          npx tsx scripts/fetch-ev-chargers.ts
+
       - name: Build
-        run: npm run build
+        run: |
+          BUILD_START=$(date +%s)
+          npm run build
+          BUILD_END=$(date +%s)
+          BUILD_DURATION=$((BUILD_END - BUILD_START))
+          echo "Build completed in ${BUILD_DURATION}s"
+          echo "build_duration=${BUILD_DURATION}" >> $GITHUB_OUTPUT
+          # 빌드 결과 요약
+          PAGE_COUNT=$(find out -name "*.html" 2>/dev/null | wc -l | tr -d ' ')
+          OUT_SIZE=$(du -sh out/ 2>/dev/null | cut -f1)
+          echo "Pages: ${PAGE_COUNT}, Output size: ${OUT_SIZE}"
+        id: build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

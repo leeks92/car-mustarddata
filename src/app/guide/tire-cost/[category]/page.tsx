@@ -5,6 +5,8 @@ import { BASE_URL } from '@/lib/urls';
 import JsonLd from '@/components/JsonLd';
 import { getTireCategory, getAllTireSlugs } from '@/lib/tire-data';
 
+export const dynamicParams = false;
+
 interface PageProps {
   params: Promise<{ category: string }>;
 }

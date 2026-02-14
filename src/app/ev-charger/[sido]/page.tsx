@@ -12,6 +12,8 @@ import {
   sigunguToSlug,
 } from '@/lib/ev-data';
 
+export const dynamicParams = false;
+
 interface PageProps {
   params: Promise<{ sido: string }>;
 }

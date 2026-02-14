@@ -6,6 +6,8 @@ import JsonLd from '@/components/JsonLd';
 import { CAR_MODELS, getCarModel, getAllSlugs } from '@/lib/car-models';
 import { calculateCarTax, formatKoreanWon } from '@/lib/calculations';
 
+export const dynamicParams = false;
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
