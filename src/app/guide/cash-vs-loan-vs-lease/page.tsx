@@ -136,6 +136,16 @@ export default function CashVsLoanVsLeasePage() {
           publisher: { '@type': 'Organization', name: 'MustardData' },
         }}
       />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: '홈', item: BASE_URL },
+            { '@type': 'ListItem', position: 2, name: '현금 vs 할부 vs 리스', item: `${BASE_URL}/guide/cash-vs-loan-vs-lease` },
+          ],
+        }}
+      />
 
       <div className="max-w-4xl mx-auto px-4 py-10">
         <nav className="text-sm text-gray-500 mb-6">

@@ -62,6 +62,18 @@ export default function HomePage() {
           publisher: {
             '@type': 'Organization',
             name: 'MustardData',
+            url: 'https://mustarddata.com',
+            logo: {
+              '@type': 'ImageObject',
+              url: `${BASE_URL}/og-image.png`,
+              width: 1200,
+              height: 630,
+            },
+          },
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: `${BASE_URL}/?q={search_term_string}`,
+            'query-input': 'required name=search_term_string',
           },
         }}
       />

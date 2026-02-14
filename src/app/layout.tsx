@@ -48,11 +48,20 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     url: BASE_URL,
     siteName: '자동차 계산기',
+    images: [
+      {
+        url: `${BASE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: '자동차 계산기 - 자동차세, 취등록세, 할부금, 유류비 계산',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: '자동차 계산기',
     description: '자동차세, 취등록세, 할부금, 유류비 등 자동차 비용 계산',
+    images: [`${BASE_URL}/og-image.png`],
   },
   robots: {
     index: true,
@@ -96,8 +105,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link
-          rel="stylesheet"
+          rel="preload"
           as="style"
+          crossOrigin="anonymous"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
+        <link
+          rel="stylesheet"
           crossOrigin="anonymous"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />

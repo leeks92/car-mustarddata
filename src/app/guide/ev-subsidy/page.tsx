@@ -53,6 +53,16 @@ export default function EVSubsidyGuidePage() {
           publisher: { '@type': 'Organization', name: 'MustardData' },
         }}
       />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: '홈', item: BASE_URL },
+            { '@type': 'ListItem', position: 2, name: '전기차 보조금 가이드', item: `${BASE_URL}/guide/ev-subsidy` },
+          ],
+        }}
+      />
 
       <div className="max-w-4xl mx-auto px-4 py-10">
         <nav className="text-sm text-gray-500 mb-6">
