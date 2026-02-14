@@ -33,8 +33,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Fetch EV charger data (scheduled only)
-        if: github.event_name == 'schedule'
+      - name: Fetch EV charger data
         env:
           EV_CHARGER_API_KEY: ${{ secrets.EV_CHARGER_API_KEY }}
         run: |
