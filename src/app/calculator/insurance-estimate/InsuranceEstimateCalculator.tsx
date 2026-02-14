@@ -258,8 +258,9 @@ export default function InsuranceEstimateCalculator() {
 
             {/* 운전자 나이 */}
             <div className="mb-5">
-              <label className="calculator-label">운전자 나이</label>
+              <label htmlFor="driverAgeGroup" className="calculator-label">운전자 나이</label>
               <select
+                id="driverAgeGroup"
                 value={ageGroup}
                 onChange={(e) => setAgeGroup(e.target.value as AgeGroup)}
                 className="calculator-input"
@@ -272,8 +273,9 @@ export default function InsuranceEstimateCalculator() {
 
             {/* 차종 분류 */}
             <div className="mb-5">
-              <label className="calculator-label">차종 분류</label>
+              <label htmlFor="carCategory" className="calculator-label">차종 분류</label>
               <select
+                id="carCategory"
                 value={carCategory}
                 onChange={(e) => setCarCategory(e.target.value as CarCategory)}
                 className="calculator-input"
@@ -286,9 +288,10 @@ export default function InsuranceEstimateCalculator() {
 
             {/* 차량 가격 */}
             <div className="mb-5">
-              <label className="calculator-label">차량 가격 (만 원)</label>
+              <label htmlFor="insuranceCarPrice" className="calculator-label">차량 가격 (만 원)</label>
               <div className="relative">
                 <input
+                  id="insuranceCarPrice"
                   type="text"
                   inputMode="numeric"
                   value={carPrice}
@@ -312,8 +315,9 @@ export default function InsuranceEstimateCalculator() {
 
             {/* 운전 경력 */}
             <div className="mb-5">
-              <label className="calculator-label">운전 경력</label>
+              <label htmlFor="drivingExperience" className="calculator-label">운전 경력</label>
               <select
+                id="drivingExperience"
                 value={experience}
                 onChange={(e) => setExperience(e.target.value as Experience)}
                 className="calculator-input"
@@ -326,8 +330,9 @@ export default function InsuranceEstimateCalculator() {
 
             {/* 사고 이력 */}
             <div className="mb-5">
-              <label className="calculator-label">사고 이력 (최근 3년)</label>
+              <label htmlFor="accidentHistory" className="calculator-label">사고 이력 (최근 3년)</label>
               <select
+                id="accidentHistory"
                 value={accidentHistory}
                 onChange={(e) => setAccidentHistory(e.target.value as AccidentHistory)}
                 className="calculator-input"

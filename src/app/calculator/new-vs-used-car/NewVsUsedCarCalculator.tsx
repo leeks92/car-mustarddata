@@ -264,9 +264,10 @@ export default function NewVsUsedCarCalculator() {
               <p className="text-sm text-gray-500 mb-5">새 차량의 가격과 연비를 입력하세요</p>
 
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">차량 가격</label>
+                <label htmlFor="newCarPrice" className="block text-sm font-medium text-gray-700 mb-1.5">차량 가격</label>
                 <div className="relative">
                   <input
+                    id="newCarPrice"
                     type="text"
                     inputMode="numeric"
                     value={newCarPrice}
@@ -285,9 +286,10 @@ export default function NewVsUsedCarCalculator() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">연비 (km/L)</label>
+                <label htmlFor="newCarEfficiency" className="block text-sm font-medium text-gray-700 mb-1.5">연비 (km/L)</label>
                 <div className="relative">
                   <input
+                    id="newCarEfficiency"
                     type="number"
                     value={newCarEfficiency}
                     onChange={(e) => setNewCarEfficiency(e.target.value)}
@@ -306,9 +308,10 @@ export default function NewVsUsedCarCalculator() {
               <p className="text-sm text-gray-500 mb-5">중고 차량의 가격, 연식, 연비를 입력하세요</p>
 
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">차량 가격</label>
+                <label htmlFor="usedCarPrice" className="block text-sm font-medium text-gray-700 mb-1.5">차량 가격</label>
                 <div className="relative">
                   <input
+                    id="usedCarPrice"
                     type="text"
                     inputMode="numeric"
                     value={usedCarPrice}
@@ -327,9 +330,10 @@ export default function NewVsUsedCarCalculator() {
               </div>
 
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">차량 연식</label>
+                <label htmlFor="usedCarAge" className="block text-sm font-medium text-gray-700 mb-1.5">차량 연식</label>
                 <div className="relative">
                   <input
+                    id="usedCarAge"
                     type="number"
                     value={usedCarAge}
                     onChange={(e) => setUsedCarAge(e.target.value)}
@@ -349,9 +353,10 @@ export default function NewVsUsedCarCalculator() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">연비 (km/L)</label>
+                <label htmlFor="usedCarEfficiency" className="block text-sm font-medium text-gray-700 mb-1.5">연비 (km/L)</label>
                 <div className="relative">
                   <input
+                    id="usedCarEfficiency"
                     type="number"
                     value={usedCarEfficiency}
                     onChange={(e) => setUsedCarEfficiency(e.target.value)}
@@ -370,9 +375,10 @@ export default function NewVsUsedCarCalculator() {
             <h2 className="text-lg font-semibold text-gray-900 mb-5">공통 조건</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">보유 기간</label>
+                <label htmlFor="holdingPeriod" className="block text-sm font-medium text-gray-700 mb-1.5">보유 기간</label>
                 <div className="relative">
                   <input
+                    id="holdingPeriod"
                     type="number"
                     value={holdingPeriod}
                     onChange={(e) => setHoldingPeriod(e.target.value)}
@@ -384,9 +390,10 @@ export default function NewVsUsedCarCalculator() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">연간 주행거리</label>
+                <label htmlFor="annualDistance" className="block text-sm font-medium text-gray-700 mb-1.5">연간 주행거리</label>
                 <div className="relative">
                   <input
+                    id="annualDistance"
                     type="text"
                     inputMode="numeric"
                     value={annualDistance}
@@ -397,9 +404,10 @@ export default function NewVsUsedCarCalculator() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">유가 (원/L)</label>
+                <label htmlFor="comparisonFuelPrice" className="block text-sm font-medium text-gray-700 mb-1.5">유가 (원/L)</label>
                 <div className="relative">
                   <input
+                    id="comparisonFuelPrice"
                     type="text"
                     inputMode="numeric"
                     value={fuelPrice}

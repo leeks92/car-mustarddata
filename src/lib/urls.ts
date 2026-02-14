@@ -384,6 +384,14 @@ export const EV_CHARGER_PAGES = [
   { path: '/ev-charger/busan', title: '부산 전기차 충전소', description: '부산광역시 전기차 충전소 현황', emoji: '⚡' },
 ];
 
+const IMPORTED_BRAND_SLUGS = ['benz', 'bmw', 'audi', 'volvo', 'lexus', 'toyota', 'vw-', 'porsche', 'mini-'];
+
+export const DOMESTIC_MODEL_PAGES = () =>
+  MODEL_PAGES.filter((m) => !IMPORTED_BRAND_SLUGS.some((b) => m.path.includes(b)));
+
+export const IMPORTED_MODEL_PAGES = () =>
+  MODEL_PAGES.filter((m) => IMPORTED_BRAND_SLUGS.some((b) => m.path.includes(b)));
+
 export const MODEL_PAGES = [
   { path: '/models/morning', title: '기아 모닝 유지비·세금', description: '모닝의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚗' },
   { path: '/models/ray', title: '기아 레이 유지비·세금', description: '레이의 자동차세, 보험료, 취등록세, 월간 유지비 총정리', emoji: '🚐' },

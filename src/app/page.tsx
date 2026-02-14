@@ -1,6 +1,25 @@
 import Link from 'next/link';
 import JsonLd from '@/components/JsonLd';
-import { CALCULATOR_PAGES, GUIDE_PAGES, INFO_PAGES, MODEL_PAGES, BASE_URL } from '@/lib/urls';
+import { CALCULATOR_PAGES, GUIDE_PAGES, INFO_PAGES, DOMESTIC_MODEL_PAGES, IMPORTED_MODEL_PAGES, BASE_URL } from '@/lib/urls';
+
+function ModelCardsGrid({ models }: { models: typeof import('@/lib/urls').MODEL_PAGES }) {
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      {models.map((model) => (
+        <Link
+          key={model.path}
+          href={model.path}
+          className="group bg-white rounded-2xl border border-gray-100 p-4 hover:shadow-lg hover:border-amber-200 transition-all text-center"
+        >
+          <div className="text-2xl mb-2">{model.emoji}</div>
+          <h3 className="text-sm font-bold text-gray-900 group-hover:text-amber-600 transition-colors">
+            {model.title.replace(' 유지비·세금', '')}
+          </h3>
+        </Link>
+      ))}
+    </div>
+  );
+}
 
 const faqs = [
   {
@@ -175,20 +194,7 @@ export default function HomePage() {
           국산차 유지비·세금 정보
         </h2>
         <p className="text-gray-500 text-center mb-8">현대·기아 인기 차종의 자동차세, 보험료, 취등록세를 한눈에 확인하세요</p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-          {MODEL_PAGES.filter((m) => !m.path.includes('benz') && !m.path.includes('bmw') && !m.path.includes('audi') && !m.path.includes('volvo') && !m.path.includes('lexus') && !m.path.includes('toyota') && !m.path.includes('vw-') && !m.path.includes('porsche') && !m.path.includes('mini-')).map((model) => (
-            <Link
-              key={model.path}
-              href={model.path}
-              className="group bg-white rounded-2xl border border-gray-100 p-4 hover:shadow-lg hover:border-amber-200 transition-all text-center"
-            >
-              <div className="text-2xl mb-2">{model.emoji}</div>
-              <h3 className="text-sm font-bold text-gray-900 group-hover:text-amber-600 transition-colors">
-                {model.title.replace(' 유지비·세금', '')}
-              </h3>
-            </Link>
-          ))}
-        </div>
+        <ModelCardsGrid models={DOMESTIC_MODEL_PAGES()} />
       </section>
 
       {/* Car Models - 수입차 */}
@@ -197,20 +203,7 @@ export default function HomePage() {
           수입차 유지비·세금 정보
         </h2>
         <p className="text-gray-500 text-center mb-8">벤츠·BMW·아우디·렉서스·토요타·볼보·폭스바겐·포르쉐·미니 인기 모델의 보험료, 정비비, 유지비를 비교하세요</p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-          {MODEL_PAGES.filter((m) => m.path.includes('benz') || m.path.includes('bmw') || m.path.includes('audi') || m.path.includes('volvo') || m.path.includes('lexus') || m.path.includes('toyota') || m.path.includes('vw-') || m.path.includes('porsche') || m.path.includes('mini-')).map((model) => (
-            <Link
-              key={model.path}
-              href={model.path}
-              className="group bg-white rounded-2xl border border-gray-100 p-4 hover:shadow-lg hover:border-amber-200 transition-all text-center"
-            >
-              <div className="text-2xl mb-2">{model.emoji}</div>
-              <h3 className="text-sm font-bold text-gray-900 group-hover:text-amber-600 transition-colors">
-                {model.title.replace(' 유지비·세금', '')}
-              </h3>
-            </Link>
-          ))}
-        </div>
+        <ModelCardsGrid models={IMPORTED_MODEL_PAGES()} />
       </section>
 
       {/* Features */}

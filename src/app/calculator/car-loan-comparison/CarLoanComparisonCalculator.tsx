@@ -159,9 +159,10 @@ export default function CarLoanComparisonCalculator() {
             <h2 className="text-lg font-semibold text-gray-900 mb-6">대출 정보</h2>
 
             <div className="mb-6">
-              <label className="calculator-label">차량 가격 (만원)</label>
+              <label htmlFor="loanCarPrice" className="calculator-label">차량 가격 (만원)</label>
               <div className="relative">
                 <input
+                  id="loanCarPrice"
                   type="text"
                   inputMode="numeric"
                   value={carPrice}
@@ -180,9 +181,10 @@ export default function CarLoanComparisonCalculator() {
             </div>
 
             <div className="mb-6">
-              <label className="calculator-label">선수금/계약금 (만원)</label>
+              <label htmlFor="downPayment" className="calculator-label">선수금/계약금 (만원)</label>
               <div className="relative">
                 <input
+                  id="downPayment"
                   type="text"
                   inputMode="numeric"
                   value={downPayment}
@@ -238,16 +240,16 @@ export default function CarLoanComparisonCalculator() {
 
             <div className="grid grid-cols-3 gap-3 mb-6">
               <div>
-                <label className="text-xs text-gray-500 mb-1 block">은행</label>
-                <input type="number" value={bankRate} onChange={(e) => setBankRate(e.target.value)} step="0.1" min="0" className="calculator-input text-center" />
+                <label htmlFor="bankRate" className="text-xs text-gray-500 mb-1 block">은행</label>
+                <input id="bankRate" type="number" value={bankRate} onChange={(e) => setBankRate(e.target.value)} step="0.1" min="0" className="calculator-input text-center" />
               </div>
               <div>
-                <label className="text-xs text-gray-500 mb-1 block">캐피탈</label>
-                <input type="number" value={capitalRate} onChange={(e) => setCapitalRate(e.target.value)} step="0.1" min="0" className="calculator-input text-center" />
+                <label htmlFor="capitalRate" className="text-xs text-gray-500 mb-1 block">캐피탈</label>
+                <input id="capitalRate" type="number" value={capitalRate} onChange={(e) => setCapitalRate(e.target.value)} step="0.1" min="0" className="calculator-input text-center" />
               </div>
               <div>
-                <label className="text-xs text-gray-500 mb-1 block">딜러</label>
-                <input type="number" value={dealerRate} onChange={(e) => setDealerRate(e.target.value)} step="0.1" min="0" className="calculator-input text-center" />
+                <label htmlFor="dealerRate" className="text-xs text-gray-500 mb-1 block">딜러</label>
+                <input id="dealerRate" type="number" value={dealerRate} onChange={(e) => setDealerRate(e.target.value)} step="0.1" min="0" className="calculator-input text-center" />
               </div>
             </div>
 

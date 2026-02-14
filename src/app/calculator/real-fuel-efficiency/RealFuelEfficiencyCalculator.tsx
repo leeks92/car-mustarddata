@@ -165,9 +165,10 @@ export default function RealFuelEfficiencyCalculator() {
               <h2 className="text-lg font-semibold text-gray-900 mb-6">주행 정보 입력</h2>
 
               <div className="mb-6">
-                <label className="calculator-label">주행거리</label>
+                <label htmlFor="drivingDistance" className="calculator-label">주행거리</label>
                 <div className="relative">
                   <input
+                    id="drivingDistance"
                     type="number"
                     value={distance}
                     onChange={(e) => setDistance(e.target.value)}
@@ -186,9 +187,10 @@ export default function RealFuelEfficiencyCalculator() {
               </div>
 
               <div className="mb-6">
-                <label className="calculator-label">주유량</label>
+                <label htmlFor="fuelAmount" className="calculator-label">주유량</label>
                 <div className="relative">
                   <input
+                    id="fuelAmount"
                     type="number"
                     value={fuelAmount}
                     onChange={(e) => setFuelAmount(e.target.value)}
@@ -227,9 +229,10 @@ export default function RealFuelEfficiencyCalculator() {
               </div>
 
               <div className="mb-6">
-                <label className="calculator-label">유가 (리터당)</label>
+                <label htmlFor="fuelPricePerLiter" className="calculator-label">유가 (리터당)</label>
                 <div className="relative">
                   <input
+                    id="fuelPricePerLiter"
                     type="text"
                     inputMode="numeric"
                     value={fuelPrice}

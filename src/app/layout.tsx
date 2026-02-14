@@ -77,8 +77,12 @@ export const metadata: Metadata = {
   category: '자동차',
   creator: 'MustardData',
   publisher: 'MustardData',
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/og-image.png',
+  },
   other: {
-    'naver-site-verification': 'PLACEHOLDER',
+    'naver-site-verification': '8c32b15ff018b75af20543ce6819161cdf27535f',
   },
 };
 
@@ -92,7 +96,7 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="google-adsense-account" content="ca-pub-3224638013189545" />
-        <meta name="naver-site-verification" content="8c32b15ff018b75af20543ce6819161cdf27535f" />
+
         <meta name="NaverBot" content="All" />
         <meta name="NaverBot" content="index,follow" />
         <meta name="Yeti" content="All" />

@@ -292,9 +292,10 @@ export default function CarOwnershipCostCalculator() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               {/* 차량 가격 */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">차량 가격</label>
+                <label htmlFor="tcoCarPrice" className="block text-sm font-medium text-gray-700 mb-1.5">차량 가격</label>
                 <div className="relative">
                   <input
+                    id="tcoCarPrice"
                     type="text"
                     inputMode="numeric"
                     value={carPrice}
@@ -314,9 +315,10 @@ export default function CarOwnershipCostCalculator() {
 
               {/* 보유 기간 */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">보유 기간</label>
+                <label htmlFor="tcoHoldingPeriod" className="block text-sm font-medium text-gray-700 mb-1.5">보유 기간</label>
                 <div className="relative">
                   <input
+                    id="tcoHoldingPeriod"
                     type="number"
                     value={holdingPeriod}
                     onChange={(e) => setHoldingPeriod(e.target.value)}
@@ -339,9 +341,10 @@ export default function CarOwnershipCostCalculator() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               {/* 연간 주행거리 */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">연간 주행거리</label>
+                <label htmlFor="tcoAnnualDistance" className="block text-sm font-medium text-gray-700 mb-1.5">연간 주행거리</label>
                 <div className="relative">
                   <input
+                    id="tcoAnnualDistance"
                     type="text"
                     inputMode="numeric"
                     value={annualDistance}
@@ -361,9 +364,10 @@ export default function CarOwnershipCostCalculator() {
 
               {/* 연비 */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">연비</label>
+                <label htmlFor="tcoFuelEfficiency" className="block text-sm font-medium text-gray-700 mb-1.5">연비</label>
                 <div className="relative">
                   <input
+                    id="tcoFuelEfficiency"
                     type="number"
                     value={fuelEfficiency}
                     onChange={(e) => setFuelEfficiency(e.target.value)}
@@ -386,8 +390,9 @@ export default function CarOwnershipCostCalculator() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* 유종 */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">유종</label>
+                <label htmlFor="tcoFuelType" className="block text-sm font-medium text-gray-700 mb-1.5">유종</label>
                 <select
+                  id="tcoFuelType"
                   value={fuelType}
                   onChange={(e) => handleFuelTypeChange(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none bg-white"
@@ -400,9 +405,10 @@ export default function CarOwnershipCostCalculator() {
 
               {/* 유가 */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">유가</label>
+                <label htmlFor="tcoFuelPrice" className="block text-sm font-medium text-gray-700 mb-1.5">유가</label>
                 <div className="relative">
                   <input
+                    id="tcoFuelPrice"
                     type="text"
                     inputMode="numeric"
                     value={fuelPrice}

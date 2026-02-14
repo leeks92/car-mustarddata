@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function InsuranceEstimatePage() {
   return (
-    <Suspense>
+    <Suspense fallback={<div className="max-w-4xl mx-auto px-4 py-10 animate-pulse"><div className="h-8 bg-gray-200 rounded w-1/3 mb-6" /><div className="space-y-4"><div className="h-12 bg-gray-100 rounded-xl" /><div className="h-12 bg-gray-100 rounded-xl" /><div className="h-12 bg-gray-100 rounded-xl" /></div></div>}>
       <InsuranceEstimateCalculator />
     </Suspense>
   );

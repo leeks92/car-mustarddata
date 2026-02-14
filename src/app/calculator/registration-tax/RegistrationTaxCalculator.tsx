@@ -86,9 +86,10 @@ export default function RegistrationTaxCalculator() {
             <h2 className="text-lg font-semibold text-gray-900 mb-6">차량 정보</h2>
 
             <div className="mb-6">
-              <label className="calculator-label">차량 가격</label>
+              <label htmlFor="price" className="calculator-label">차량 가격</label>
               <div className="relative">
                 <input
+                  id="price"
                   type="text"
                   value={price}
                   onChange={(e) => handlePriceChange(e.target.value)}

@@ -80,9 +80,9 @@ export default function DepreciationCalculator() {
             <h2 className="text-lg font-semibold text-gray-900 mb-6">차량 정보</h2>
 
             <div className="mb-6">
-              <label className="calculator-label">신차 출고 가격</label>
+              <label htmlFor="originalPrice" className="calculator-label">신차 출고 가격</label>
               <div className="relative">
-                <input type="text" value={originalPrice} onChange={(e) => handlePriceChange(e.target.value)} className="calculator-input pr-16" />
+                <input id="originalPrice" type="text" value={originalPrice} onChange={(e) => handlePriceChange(e.target.value)} className="calculator-input pr-16" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">만원</span>
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
@@ -95,9 +95,9 @@ export default function DepreciationCalculator() {
             </div>
 
             <div className="mb-6">
-              <label className="calculator-label">차량 연식 (등록 후 경과 연수)</label>
+              <label htmlFor="currentAge" className="calculator-label">차량 연식 (등록 후 경과 연수)</label>
               <div className="relative">
-                <input type="number" value={currentAge} onChange={(e) => setCurrentAge(e.target.value)} min="0" max="20" className="calculator-input pr-12" />
+                <input id="currentAge" type="number" value={currentAge} onChange={(e) => setCurrentAge(e.target.value)} min="0" max="20" className="calculator-input pr-12" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">년</span>
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
@@ -110,9 +110,9 @@ export default function DepreciationCalculator() {
             </div>
 
             <div className="mb-6">
-              <label className="calculator-label">현재 주행거리</label>
+              <label htmlFor="currentMileage" className="calculator-label">현재 주행거리</label>
               <div className="relative">
-                <input type="text" value={mileage} onChange={(e) => handleMileageChange(e.target.value)} className="calculator-input pr-12" />
+                <input id="currentMileage" type="text" value={mileage} onChange={(e) => handleMileageChange(e.target.value)} className="calculator-input pr-12" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">km</span>
               </div>
               <div className="flex flex-wrap gap-2 mt-2">

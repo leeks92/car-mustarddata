@@ -159,9 +159,10 @@ export default function CarTaxCalculator() {
 
             {carType !== 'ev' && (
               <div className="mb-6">
-                <label className="calculator-label">배기량</label>
+                <label htmlFor="displacement" className="calculator-label">배기량</label>
                 <div className="relative">
                   <input
+                    id="displacement"
                     type="text"
                     value={displacement}
                     onChange={(e) => handleDisplacementChange(e.target.value)}
@@ -188,11 +189,12 @@ export default function CarTaxCalculator() {
             )}
 
             <div className="mb-6">
-              <label className="calculator-label">
+              <label htmlFor="carAge" className="calculator-label">
                 차령 (등록 후 경과 연수)
               </label>
               <div className="relative">
                 <input
+                  id="carAge"
                   type="number"
                   value={carAge}
                   onChange={(e) => setCarAge(e.target.value)}

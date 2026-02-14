@@ -82,9 +82,9 @@ export default function InstallmentCalculator() {
             <h2 className="text-lg font-semibold text-gray-900 mb-6">할부 정보</h2>
 
             <div className="mb-6">
-              <label className="calculator-label">할부 원금 (차량 가격 - 선수금)</label>
+              <label htmlFor="installmentPrincipal" className="calculator-label">할부 원금 (차량 가격 - 선수금)</label>
               <div className="relative">
-                <input type="text" value={principal} onChange={(e) => handlePrincipalChange(e.target.value)} className="calculator-input pr-16" />
+                <input id="installmentPrincipal" type="text" value={principal} onChange={(e) => handlePrincipalChange(e.target.value)} className="calculator-input pr-16" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">만원</span>
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
@@ -97,9 +97,9 @@ export default function InstallmentCalculator() {
             </div>
 
             <div className="mb-6">
-              <label className="calculator-label">연 금리</label>
+              <label htmlFor="annualRate" className="calculator-label">연 금리</label>
               <div className="relative">
-                <input type="number" value={annualRate} onChange={(e) => setAnnualRate(e.target.value)} step="0.1" min="0" max="30" className="calculator-input pr-12" />
+                <input id="annualRate" type="number" value={annualRate} onChange={(e) => setAnnualRate(e.target.value)} step="0.1" min="0" max="30" className="calculator-input pr-12" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">%</span>
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
@@ -112,9 +112,9 @@ export default function InstallmentCalculator() {
             </div>
 
             <div className="mb-6">
-              <label className="calculator-label">할부 기간</label>
+              <label htmlFor="installmentMonths" className="calculator-label">할부 기간</label>
               <div className="relative">
-                <input type="number" value={months} onChange={(e) => setMonths(e.target.value)} min="6" max="120" className="calculator-input pr-12" />
+                <input id="installmentMonths" type="number" value={months} onChange={(e) => setMonths(e.target.value)} min="6" max="120" className="calculator-input pr-12" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">개월</span>
               </div>
               <div className="flex flex-wrap gap-2 mt-2">

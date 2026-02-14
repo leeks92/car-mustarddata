@@ -109,9 +109,9 @@ export default function FuelCostCalculator() {
             <h2 className="text-lg font-semibold text-gray-900 mb-6">주행 정보</h2>
 
             <div className="mb-6">
-              <label className="calculator-label">주행 거리</label>
+              <label htmlFor="distance" className="calculator-label">주행 거리</label>
               <div className="relative">
-                <input type="number" value={distance} onChange={(e) => setDistance(e.target.value)} min="1" className="calculator-input pr-12" />
+                <input id="distance" type="number" value={distance} onChange={(e) => setDistance(e.target.value)} min="1" className="calculator-input pr-12" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">km</span>
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
@@ -143,11 +143,11 @@ export default function FuelCostCalculator() {
             </div>
 
             <div className="mb-6">
-              <label className="calculator-label">
+              <label htmlFor="efficiency" className="calculator-label">
                 연비 ({fuelType === 'electric' ? 'km/kWh' : 'km/L'})
               </label>
               <div className="relative">
-                <input type="number" value={efficiency} onChange={(e) => setEfficiency(e.target.value)} step="0.1" min="1" className="calculator-input pr-20" />
+                <input id="efficiency" type="number" value={efficiency} onChange={(e) => setEfficiency(e.target.value)} step="0.1" min="1" className="calculator-input pr-20" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
                   {fuelType === 'electric' ? 'km/kWh' : 'km/L'}
                 </span>
@@ -155,11 +155,11 @@ export default function FuelCostCalculator() {
             </div>
 
             <div className="mb-6">
-              <label className="calculator-label">
+              <label htmlFor="fuelPrice" className="calculator-label">
                 {fuelType === 'electric' ? 'kWh당 단가' : '리터당 유가'}
               </label>
               <div className="relative">
-                <input type="text" inputMode="numeric" value={fuelPrice} onChange={(e) => handleFuelPriceChange(e.target.value)} className="calculator-input pr-12" />
+                <input id="fuelPrice" type="text" inputMode="numeric" value={fuelPrice} onChange={(e) => handleFuelPriceChange(e.target.value)} className="calculator-input pr-12" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">원</span>
               </div>
             </div>

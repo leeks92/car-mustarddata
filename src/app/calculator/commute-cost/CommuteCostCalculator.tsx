@@ -121,9 +121,9 @@ export default function CommuteCostCalculator() {
             <h2 className="text-lg font-semibold text-gray-900 mb-6">출퇴근 정보</h2>
 
             <div className="mb-6">
-              <label className="calculator-label">편도 거리</label>
+              <label htmlFor="oneWayDistance" className="calculator-label">편도 거리</label>
               <div className="relative">
-                <input type="number" value={oneWayDistance} onChange={(e) => setOneWayDistance(e.target.value)} min="1" className="calculator-input pr-12" />
+                <input id="oneWayDistance" type="number" value={oneWayDistance} onChange={(e) => setOneWayDistance(e.target.value)} min="1" className="calculator-input pr-12" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">km</span>
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
@@ -134,9 +134,9 @@ export default function CommuteCostCalculator() {
             </div>
 
             <div className="mb-6">
-              <label className="calculator-label">월 출근일수</label>
+              <label htmlFor="workDays" className="calculator-label">월 출근일수</label>
               <div className="relative">
-                <input type="number" value={workDays} onChange={(e) => setWorkDays(e.target.value)} min="1" max="31" className="calculator-input pr-12" />
+                <input id="workDays" type="number" value={workDays} onChange={(e) => setWorkDays(e.target.value)} min="1" max="31" className="calculator-input pr-12" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">일</span>
               </div>
             </div>
@@ -144,17 +144,18 @@ export default function CommuteCostCalculator() {
             <h3 className="text-sm font-semibold text-gray-700 mb-3 mt-8 border-t pt-4">자가용 정보</h3>
 
             <div className="mb-6">
-              <label className="calculator-label">연비</label>
+              <label htmlFor="commuteEfficiency" className="calculator-label">연비</label>
               <div className="relative">
-                <input type="number" value={efficiency} onChange={(e) => setEfficiency(e.target.value)} step="0.1" min="1" className="calculator-input pr-16" />
+                <input id="commuteEfficiency" type="number" value={efficiency} onChange={(e) => setEfficiency(e.target.value)} step="0.1" min="1" className="calculator-input pr-16" />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">km/L</span>
               </div>
             </div>
 
             <div className="mb-6">
-              <label className="calculator-label">유가 (리터당)</label>
+              <label htmlFor="commuteFuelPrice" className="calculator-label">유가 (리터당)</label>
               <div className="relative">
                 <input
+                  id="commuteFuelPrice"
                   type="text"
                   inputMode="numeric"
                   value={fuelPrice}
@@ -166,9 +167,10 @@ export default function CommuteCostCalculator() {
             </div>
 
             <div className="mb-6">
-              <label className="calculator-label">월 주차비</label>
+              <label htmlFor="monthlyParkingCost" className="calculator-label">월 주차비</label>
               <div className="relative">
                 <input
+                  id="monthlyParkingCost"
                   type="text"
                   inputMode="numeric"
                   value={parkingCost}
@@ -182,9 +184,10 @@ export default function CommuteCostCalculator() {
             <h3 className="text-sm font-semibold text-gray-700 mb-3 mt-8 border-t pt-4">대중교통·기타</h3>
 
             <div className="mb-6">
-              <label className="calculator-label">대중교통 월 정기권/교통비</label>
+              <label htmlFor="transitPassCost" className="calculator-label">대중교통 월 정기권/교통비</label>
               <div className="relative">
                 <input
+                  id="transitPassCost"
                   type="text"
                   inputMode="numeric"
                   value={transitPass}
@@ -196,9 +199,10 @@ export default function CommuteCostCalculator() {
             </div>
 
             <div className="mb-6">
-              <label className="calculator-label">자전거/도보 월 비용</label>
+              <label htmlFor="bikeCost" className="calculator-label">자전거/도보 월 비용</label>
               <div className="relative">
                 <input
+                  id="bikeCost"
                   type="text"
                   inputMode="numeric"
                   value={bikeCost}
